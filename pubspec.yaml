@@ -20,6 +20,7 @@ dependencies:
   styled_widget: ^0.4.0+3
   flash: ^2.0.3
   modal_bottom_sheet: ^2.0.0
+  flutter_svg: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +28,7 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/icons/bulk/
