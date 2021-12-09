@@ -19,6 +19,7 @@ dependencies:
   animations: ^2.0.2
   styled_widget: ^0.4.0+3
   flash: ^2.0.3
+  modal_bottom_sheet: ^2.0.0
 
 dev_dependencies:
   flutter_test:

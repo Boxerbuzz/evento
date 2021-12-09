@@ -20,7 +20,7 @@ class AppTheme {
   late Color accent;
   late Color grey;
   late Color greyStrong;
-  late Color greyWeak;
+  late Color accent1;
   late Color error;
   late Color focus;
 
@@ -28,28 +28,27 @@ class AppTheme {
   late Color accentTxt;
 
   AppTheme(this.isDark) {
-    txt = isDark ? Colors.white : const Color(0xff323B56);
-    accentTxt = isDark ? Colors.white : const Color(0xff050715);
+    txt = isDark ? Colors.white : const Color(0xff171766);
+    accentTxt = const Color(0xff5669FF);
   }
 
   factory AppTheme.fromType(ThemeType t) {
     switch (t) {
       case ThemeType.light:
         return AppTheme(false)
-          //Color(0xFFF8F8FF) Color(0xFFF4F4F4)
           ..background = const Color(0xFFF8F8FF)
           ..bg2 = const Color(0xffFFFBFA)
-          ..surface =  Colors.white
-          ..primary = const Color(0xff1EB980)
-          ..primaryVariant = const Color(0xff045D56)
-          ..secondary = const Color(0xffFF6859)
-          ..secondaryVariant = const Color(0xffFFCF44)
-          ..accent = const Color(0xffB15DFF)
-          ..greyWeak = const Color(0xff909f9c)
-          ..grey = const Color(0xff515d5a)
-          ..greyStrong = const Color(0xff151918)
-          ..error = Colors.redAccent
-          ..focus = const Color(0xFF0ee2b1);
+          ..surface = Colors.white
+          ..primary = const Color(0xff5669FF)
+          ..primaryVariant = const Color(0xff4A43EC)
+          ..secondary = const Color(0xff00F8FF)
+          ..secondaryVariant = const Color(0xff39D1F2)
+          ..accent = const Color(0xff29D697)
+          ..accent1 = const Color(0xffFF8D5D)
+          ..grey = const Color(0xffDADADA)
+          ..greyStrong = const Color(0xff515d5a)
+          ..error = const Color(0xffEE544A)
+          ..focus = const Color(0xFF7D67EE);
 
       case ThemeType.dark:
         return AppTheme(true)
@@ -61,7 +60,7 @@ class AppTheme {
           ..secondary = const Color(0xff00caa5)
           ..secondaryVariant = const Color(0xfff19e46)
           ..accent = const Color(0xff5BC91A)
-          ..greyWeak = const Color(0xffa8b3b0)
+          ..accent1 = const Color(0xffa8b3b0)
           ..grey = const Color(0xffced4d3)
           ..greyStrong = const Color(0xffffffff)
           ..error = const Color(0xffe55642)
@@ -82,9 +81,9 @@ class AppTheme {
         secondaryVariant: ColorHelper.shiftHsl(secondaryVariant, -.2),
         background: background,
         surface: surface,
-        onBackground: txt,
-        onSurface: txt,
-        onError: txt,
+        onBackground: surface,
+        onSurface: bg2,
+        onError: error,
         onPrimary: accentTxt,
         onSecondary: accentTxt,
         error: error,
@@ -93,7 +92,7 @@ class AppTheme {
     return t.copyWith(
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       textSelectionTheme: TextSelectionThemeData(
-        selectionColor: greyWeak,
+        selectionColor: accent1,
         selectionHandleColor: Colors.transparent,
         cursorColor: primary,
       ),
@@ -101,7 +100,4 @@ class AppTheme {
       toggleableActiveColor: primary,
     );
   }
-
-  Color shift(Color c, double d) =>
-      ColorHelper.shiftHsl(c, d * (isDark ? -1 : 1));
 }
