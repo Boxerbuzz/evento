@@ -1,9 +1,8 @@
 import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class SvgIcon extends StatelessWidget {
-  const SvgIcon(this.icon, {this.size, this.color, Key? key}) : super(key: key);
+class EvSvgIc extends StatelessWidget {
+  const EvSvgIc(this.icon, {this.size, this.color, Key? key}) : super(key: key);
   final String icon;
   final double? size;
   final Color? color;

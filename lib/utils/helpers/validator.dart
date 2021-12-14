@@ -21,7 +21,7 @@ class InputValidator {
 
   static bool isEmail(String value) {
     return RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(value);
   }
 
@@ -30,7 +30,7 @@ class InputValidator {
   static bool _email(String? value) {
     if (value == null) return false;
     RegExp emailRegExp =
-        RegExp(r"(^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$)");
+    RegExp(r"(^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$)");
     return emailRegExp.hasMatch(value);
   }
 
@@ -50,14 +50,14 @@ class InputValidator {
     bool hasDigits = password.contains(RegExp(r'[0-9]'));
     bool hasLowercase = password.contains(RegExp(r'[a-z]'));
     bool hasSpecialCharacters =
-        password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+    password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
     bool hasMinLength = password.length >= minLength;
 
     return hasDigits &
-        hasUppercase &
-        hasLowercase &
-        hasSpecialCharacters &
-        hasMinLength;
+    hasUppercase &
+    hasLowercase &
+    hasSpecialCharacters &
+    hasMinLength;
   }
 }
 

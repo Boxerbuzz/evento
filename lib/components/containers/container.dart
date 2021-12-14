@@ -1,7 +1,7 @@
 import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
-class EVContainer extends StatelessWidget {
+class EvContainer extends StatelessWidget {
   final Color? color;
   final BorderRadiusGeometry? borderRadius;
   final List<BoxShadow>? shadows;
@@ -13,7 +13,7 @@ class EVContainer extends StatelessWidget {
   final Duration? duration;
   final BoxBorder? border;
 
-  const EVContainer(
+  const EvContainer(
       {Key? key,
       this.color,
       this.borderRadius,

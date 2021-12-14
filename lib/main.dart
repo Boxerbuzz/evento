@@ -31,7 +31,7 @@ class Evento extends StatelessWidget {
                 MediaQuery.of(context).size.width <= 800 ? 0.8 : 1.9,
           ),
         ),
-        home: const MainScreen(),
+        home: const LoginScreen(),
       ),
     );
   }
