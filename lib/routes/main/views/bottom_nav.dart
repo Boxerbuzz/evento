@@ -13,6 +13,7 @@ class EVBottomNav extends StatelessWidget {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           notchMargin: Insets.sm,
           shape: const CircularNotchedRectangle(),
+          elevation: 1,
           child: Container(
             height: 60,
             decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class EVBottomNav extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SvgIcon(
+                              EvSvgIc(
                                 store.currentPage == index
                                     ? _navItems[index]['selected']
                                     : _navItems[index]['icon'],
@@ -57,7 +58,6 @@ class EVBottomNav extends StatelessWidget {
               ),
             ),
           ),
-          elevation: 1,
         );
       },
     );

@@ -1,13 +1,13 @@
 import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
-class EVHorizontalScroll extends StatefulWidget {
+class EvHScroll extends StatefulWidget {
   final Duration? autoScrollDuration;
   final Curve? autoScrollCurve;
   final Widget child;
   final ScrollPhysics? physics;
 
-  const EVHorizontalScroll({
+  const EvHScroll({
     this.autoScrollDuration,
     this.autoScrollCurve,
     required this.child,
@@ -16,10 +16,10 @@ class EVHorizontalScroll extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State createState() => _EVHorizontalScrollState();
+  State createState() => _EvHScrollState();
 }
 
-class _EVHorizontalScrollState extends State<EVHorizontalScroll> {
+class _EvHScrollState extends State<EvHScroll> {
   late GlobalKey _childContainerKey;
   late GlobalKey _scrollViewKey;
   double _childWidth = 0.0;

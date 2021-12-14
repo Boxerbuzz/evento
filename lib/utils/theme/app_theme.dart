@@ -20,7 +20,7 @@ class AppTheme {
   late Color accent;
   late Color grey;
   late Color greyStrong;
-  late Color accent1;
+  late Color accentVariant;
   late Color error;
   late Color focus;
 
@@ -41,10 +41,10 @@ class AppTheme {
           ..surface = Colors.white
           ..primary = const Color(0xff5669FF)
           ..primaryVariant = const Color(0xff4A43EC)
-          ..secondary = const Color(0xff00F8FF)
-          ..secondaryVariant = const Color(0xff39D1F2)
-          ..accent = const Color(0xff29D697)
-          ..accent1 = const Color(0xffFF8D5D)
+          ..secondary = const Color(0xff29D697)
+          ..secondaryVariant = const Color(0xffFF8D5D)
+          ..accent = const Color(0xff00F8FF)
+          ..accentVariant = const Color(0xff39D1F2)
           ..grey = const Color(0xffDADADA)
           ..greyStrong = const Color(0xff515d5a)
           ..error = const Color(0xffEE544A)
@@ -60,7 +60,7 @@ class AppTheme {
           ..secondary = const Color(0xff00caa5)
           ..secondaryVariant = const Color(0xfff19e46)
           ..accent = const Color(0xff5BC91A)
-          ..accent1 = const Color(0xffa8b3b0)
+          ..accentVariant = const Color(0xffa8b3b0)
           ..grey = const Color(0xffced4d3)
           ..greyStrong = const Color(0xffffffff)
           ..error = const Color(0xffe55642)
@@ -92,7 +92,7 @@ class AppTheme {
     return t.copyWith(
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       textSelectionTheme: TextSelectionThemeData(
-        selectionColor: accent1,
+        selectionColor: accentVariant,
         selectionHandleColor: Colors.transparent,
         cursorColor: primary,
       ),

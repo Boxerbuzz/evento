@@ -1,3 +1,4 @@
+import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +6,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          VSpace.xl,
+          EvSectionHeader(
+            title: R.S.upcoming,
+            more: true,
+            click: () {},
+          ).padding(horizontal: Insets.l),
+          SkewH(items: const [{}, {}, {}, {}, {}], onChange: (value) {}),
+        ],
+      ),
+    );
   }
 }

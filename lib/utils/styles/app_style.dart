@@ -86,7 +86,7 @@ class Sizes {
 }
 
 class TextStyles {
-  static TextStyle quicksand = GoogleFonts.aBeeZee();
+  static TextStyle quicksand = GoogleFonts.comfortaa();
 
   static TextStyle get t1 => quicksand.regular.size(FontSizes.s16);
 

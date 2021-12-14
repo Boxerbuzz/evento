@@ -14,15 +14,30 @@ class _MainScreenState extends State<MainScreen> {
     AppTheme theme = context.watch();
     return Scaffold(
       bottomNavigationBar: const EVBottomNav(),
-      body: Container(),
+      body: SafeArea(
+        child: Consumer<AppProvider>(
+          builder: (context, store, child) {
+            return IndexedStack(
+              index: store.currentPage,
+              children: const [
+                HomeScreen(),
+                ExploreScreen(),
+                EventScreen(),
+                ProfileScreen(),
+              ],
+            );
+          },
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: SvgIcon(
-          R.I.add.svgB,
-          color: theme.primaryVariant,
+        child: EvSvgIc(
+          R.I.add.svgT,
+          color: theme.background,
           size: 24,
         ),
+        backgroundColor: theme.primaryVariant,
       ),
     );
   }

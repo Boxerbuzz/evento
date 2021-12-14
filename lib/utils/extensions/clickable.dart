@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 extension ClickableExtensions on Widget {
   Widget clickable(void Function()? action, {bool opaque = true}) {
@@ -17,7 +16,10 @@ extension ClickableExtensions on Widget {
   Widget rippleClick(void Function()? onTap) {
     return Stack(
       children: <Widget>[
-        this,
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: this,
+        ),
         Positioned(
           left: 0,
           right: 0,
