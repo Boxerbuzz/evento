@@ -13,6 +13,8 @@ export 'misc/app_bar.dart';
 export 'misc/section_header.dart';
 export 'misc/spacer.dart';
 export 'misc/svg_icon.dart';
+export 'misc/avatar.dart';
+export 'misc/face_pile.dart';
 
 export 'scrollables/horizontal_scroll.dart';
-export 'scrollables/skew_h.dart';
+export 'scrollables/event_showcase.dart';

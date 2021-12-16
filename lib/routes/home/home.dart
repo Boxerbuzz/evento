@@ -6,6 +6,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<EventModel> events =
+        MockData.events.map((event) => EventModel.fromJson(event)).toList();
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -15,7 +17,17 @@ class HomeScreen extends StatelessWidget {
             more: true,
             click: () {},
           ).padding(horizontal: Insets.l),
-          SkewH(items: const [{}, {}, {}, {}, {}], onChange: (value) {}),
+          EvShowcase(
+            items: events.take(3).toList(),
+            onChange: (value) {},
+          ),
+          VSpace.lg,
+          EvSectionHeader(
+            title: R.S.popular,
+            more: true,
+            click: () {},
+          ).padding(horizontal: Insets.l),
+          ...events.reversed.take(5).map((event) => EventItem(data: event)),
         ],
       ),
     );

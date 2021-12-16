@@ -12,10 +12,10 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
-    return Scaffold(
-      bottomNavigationBar: const EVBottomNav(),
-      body: SafeArea(
-        child: Consumer<AppProvider>(
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: const EVBottomNav(),
+        body: Consumer<AppProvider>(
           builder: (context, store, child) {
             return IndexedStack(
               index: store.currentPage,
@@ -28,16 +28,17 @@ class _MainScreenState extends State<MainScreen> {
             );
           },
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: EvSvgIc(
-          R.I.add.svgT,
-          color: theme.background,
-          size: 24,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: EvSvgIc(
+            R.I.add.svgT,
+            color: theme.background,
+            size: 24,
+          ),
+          backgroundColor: theme.primaryVariant,
         ),
-        backgroundColor: theme.primaryVariant,
+        resizeToAvoidBottomInset: true,
       ),
     );
   }
