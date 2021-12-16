@@ -2,7 +2,6 @@ import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  
   runApp(
     MultiProvider(
       providers: providers,
@@ -27,8 +26,7 @@ class Evento extends StatelessWidget {
         builder: (context, child) => MediaQuery(
           child: child!,
           data: MediaQuery.of(context).copyWith(
-            textScaleFactor:
-                MediaQuery.of(context).size.width <= 800 ? 0.8 : 1.9,
+            textScaleFactor: context.widthPx <= 800 ? 0.8 : 1.9,
           ),
         ),
         home: const LoginScreen(),

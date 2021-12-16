@@ -1,25 +1,25 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:evento/exports.dart';
 
-class SkewH extends StatefulWidget {
-  const SkewH({Key? key, this.items = const [], this.onChange})
+class EvShowcase extends StatefulWidget {
+  const EvShowcase({Key? key, this.items = const [], this.onChange})
       : super(key: key);
-  final List<dynamic> items;
+  final List<EventModel> items;
   final Function? onChange;
 
   @override
-  _SkewHState createState() => _SkewHState();
+  _EvShowcaseState createState() => _EvShowcaseState();
 }
 
-class _SkewHState extends State<SkewH> with SingleTickerProviderStateMixin {
-  final double _maxRotation = 20;
+class _EvShowcaseState extends State<EvShowcase>
+    with SingleTickerProviderStateMixin {
+  final double _maxRotation = 30;
 
   late PageController _pageController;
 
-  double _cardWidth = 160;
-  double _cardHeight = 200;
+  late double _cardWidth;
+  late double _cardHeight;
   double _normalizedOffset = 0;
   double _prevScrollX = 0;
   bool _isScrolling = false;
@@ -30,12 +30,12 @@ class _SkewHState extends State<SkewH> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    _cardHeight = (context.heightPct(.38)).clamp(130.0, 230.0);
-    _cardWidth = context.widthPct(.83);
+    _cardHeight = (context.heightPct(.38)).clamp(130.0, 300.0);
+    _cardWidth = context.widthPct(.7);
     _pageController = PageController(
       initialPage: 1,
-      viewportFraction:
-          widget.items.length > 1 ? _cardWidth / context.widthPx : 0.89,
+      viewportFraction: _cardWidth / context.widthPx,
+      keepPage: false,
     );
 
     Widget listContent = SizedBox(
@@ -61,13 +61,11 @@ class _SkewHState extends State<SkewH> with SingleTickerProviderStateMixin {
   Widget _buildItemRenderer(int itemIndex) {
     return _Rotation3d(
       rotationY: _normalizedOffset * _maxRotation,
-      child: _RenderItem(
+      child: _Item(
         _normalizedOffset,
         item: widget.items[itemIndex % widget.items.length],
         cardWidth: _cardWidth,
         color: itemIndex == 0 ? Colors.indigoAccent : Colors.pinkAccent,
-        cardHeight: _cardHeight,
-        length: widget.items.length,
       ),
     );
   }
@@ -152,115 +150,111 @@ class _Rotation3d extends StatelessWidget {
   }
 }
 
-class _RenderItem extends StatelessWidget {
-  const _RenderItem(
+class _Item extends StatelessWidget {
+  const _Item(
     this.offset, {
     Key? key,
     this.cardWidth = 250,
     required this.item,
-    this.cardHeight,
     this.color,
-    this.length = 0,
   }) : super(key: key);
   final double offset;
   final double? cardWidth;
-  final double? cardHeight;
-  final dynamic item;
+  final EventModel item;
   final Color? color;
-  final int length;
 
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
     return SizedBox(
-      width: length == 1 ? context.widthPx : cardWidth,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: <Widget>[
-          EvContainer(
-            margin: EdgeInsets.only(
-              top: 30,
-              left: length == 1 ? 0 : 12,
-              right: length == 1 ? 0 : 12,
-              bottom: 12,
-            ),
-            color: ColorHelper.shiftHsl(color!, .1),
-            borderRadius: Corners.s5Border,
-            shadows: Shadows.m(theme.grey, .1),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(Insets.l),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            EvContainer(
-                              height: 30,
-                              width: 30,
-                              color: color,
-                              borderRadius: Corners.s5Border,
-                              shadows: Shadows.m(color!, .1),
-                            ),
-                            HSpace.sm,
-                            Text(
-                              'Some title',
-                              style: TextStyles.body1.bold
-                                  .textColor(theme.surface),
-                            ),
-                          ],
+      width: cardWidth,
+      child: EvContainer(
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        color: ColorHelper.shiftHsl(theme.surface, .1),
+        borderRadius: Corners.s5Border,
+        shadows: Shadows.m(theme.grey, .1),
+        child: Padding(
+          padding: EdgeInsets.all(Insets.m),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AspectRatio(
+                aspectRatio: 1.8,
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: ColorHelper.shiftHsl(color!, .1),
+                        borderRadius: Corners.s5Border,
+                        image: DecorationImage(
+                          image: AssetImage(StringHelper.isEmpty(item.backdrop)
+                              ? item.img
+                              : item.backdrop),
+                          fit: BoxFit.cover,
                         ),
-                        const Spacer(flex: 6),
-                        Text(
-                          'Some more title',
-                          style: TextStyles.h6.textColor(theme.background),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 10,
+                      child: EvIcBtn(
+                        EvSvgIc(
+                          R.I.archiveAdd.svgT,
+                          color: theme.background,
                         ),
-                        const Spacer(flex: 2),
-                        Row(
-                          children: [
-                            Text(
-                              '₦ ',
-                              style: TextStyles.h4
-                                  .textColor(theme.background)
-                                  .copyWith(fontFamily: ''),
-                            ),
-                            Text(
-                              'Some Extra',
-                              style: TextStyles.h5.textColor(theme.background),
-                            ),
-                          ],
-                        ),
+                        bgColor: color,
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(flex: 2),
+              Text(
+                item.name,
+                style: TextStyles.h6.bold,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const Spacer(flex: 2),
+              Row(
+                children: [
+                  const Expanded(
+                    child: FacePile(
+                      facePercentOverlap: .3,
+                      faceSize: 30,
+                      urls: [
+                        'https://randomuser.me/api/portraits/men/36.jpg',
+                        'https://randomuser.me/api/portraits/men/74.jpg',
+                        'https://randomuser.me/api/portraits/men/20.jpg',
+                        'https://randomuser.me/api/portraits/men/50.jpg',
+                        'https://randomuser.me/api/portraits/men/12.jpg',
                       ],
                     ),
                   ),
-                ),
-                EvContainer(
-                  height: double.infinity,
-                  width: 70,
-                  color: color,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      VSpace.md,
-                      EvIcBtn(
-                        EvSvgIc(R.I.add.svgT, color: theme.surface),
-                      ),
-                      const Spacer(flex: 1),
-                      EvIcBtn(
-                        EvSvgIc(R.I.settings.svgT, color: theme.surface),
-                      ),
-                      VSpace.md,
-                    ],
+                  Text(
+                    '+ 12k Going',
+                    style: TextStyles.body2.textColor(theme.primary),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+              const Spacer(flex: 2),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  EvSvgIc(R.I.location.svgB),
+                  HSpace.sm,
+                  Expanded(
+                    child: Text(
+                      item.location,
+                      style: TextStyles.body1,
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

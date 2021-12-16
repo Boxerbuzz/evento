@@ -25,4 +25,5 @@ class MyString {
 
 
   String get upcoming => 'Upcoming Events';
+  String get popular => 'Popular Events';
 }

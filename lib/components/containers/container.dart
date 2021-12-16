@@ -9,7 +9,7 @@ class EvContainer extends StatelessWidget {
   final double? width;
   final double? height;
   final Alignment? align;
-  final EdgeInsets? margin;
+  final EdgeInsetsGeometry? margin;
   final Duration? duration;
   final BoxBorder? border;
 
