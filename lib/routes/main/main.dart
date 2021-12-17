@@ -14,16 +14,18 @@ class _MainScreenState extends State<MainScreen> {
     AppTheme theme = context.watch();
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         bottomNavigationBar: const EVBottomNav(),
         body: Consumer<AppProvider>(
           builder: (context, store, child) {
             return IndexedStack(
               index: store.currentPage,
-              children: const [
-                HomeScreen(),
-                ExploreScreen(),
-                EventScreen(),
-                ProfileScreen(),
+              children: [
+                const HomeScreen(),
+                const ExploreScreen(),
+                Container(),
+                const EventScreen(),
+                const ProfileScreen(),
               ],
             );
           },
@@ -38,7 +40,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
           backgroundColor: theme.primaryVariant,
         ),
-        resizeToAvoidBottomInset: true,
       ),
     );
   }

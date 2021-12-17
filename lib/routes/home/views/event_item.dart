@@ -57,7 +57,10 @@ class EventItem extends StatelessWidget {
             ),
           )
         ],
-      ).padding(all: Insets.m),
+      ).padding(all: Insets.m).rippleClick(() => gotoDetails(context)),
     );
   }
+
+  gotoDetails(BuildContext ctx) => Navigator.push(
+      ctx, RouteHelper.fadeScale(() => const DetailScreen()));
 }

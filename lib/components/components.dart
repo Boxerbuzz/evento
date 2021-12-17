@@ -15,6 +15,8 @@ export 'misc/spacer.dart';
 export 'misc/svg_icon.dart';
 export 'misc/avatar.dart';
 export 'misc/face_pile.dart';
+export 'misc/busy.dart';
+export 'misc/tab.dart';
 
 export 'scrollables/horizontal_scroll.dart';
 export 'scrollables/event_showcase.dart';

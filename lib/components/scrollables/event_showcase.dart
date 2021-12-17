@@ -254,8 +254,11 @@ class _Item extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        ).rippleClick(()=> gotoDetails(context)),
       ),
     );
   }
+
+  gotoDetails(BuildContext ctx) => Navigator.push(
+      ctx, RouteHelper.fadeScale(() => const DetailScreen()));
 }

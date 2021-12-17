@@ -2,6 +2,8 @@ export 'authentication/login.dart';
 export 'authentication/signup.dart';
 export 'authentication/welcome.dart';
 
+export 'details/details.dart';
+
 export 'events/events.dart';
 
 export 'explore/explore.dart';

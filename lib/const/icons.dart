@@ -51,6 +51,7 @@ class MyIcons {
   String get reserve => 'reserve';
   String get refresh => 'rotate-right';
   String get scan => 'scan-barcode';
+  String get search => 'search';
   String get settings => 'setting';
   String get shield => 'shield';
   String get tag => 'tag';
