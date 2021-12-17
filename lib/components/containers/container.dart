@@ -37,6 +37,7 @@ class EvContainer extends StatelessWidget {
       margin: margin,
       alignment: align,
       clipBehavior: Clip.antiAlias,
+      padding: EdgeInsets.zero,
       decoration: BoxDecoration(
         color: color ?? theme.primary,
         borderRadius: borderRadius,

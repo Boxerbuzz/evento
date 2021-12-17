@@ -34,9 +34,19 @@ class AppHelper {
     WidgetsBinding.instance!.focusManager.primaryFocus?.unfocus();
   }
 
-  static void changeStatusBarColor(Color color) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: color),
-    );
+  static void statusBar(BuildContext context, w, Function f, {Color? c}) {
+    Future.microtask(() {
+      StatefulElement stateObj = StatefulElement(w);
+      if (stateObj.state.mounted) {
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle(
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark,
+            statusBarColor: c ?? Colors.white,
+          ),
+        );
+        f();
+      }
+    });
   }
 }
