@@ -14,4 +14,6 @@ export 'home/views/event_item.dart';
 export 'main/main.dart';
 export 'main/views/bottom_nav.dart';
 
+export 'notification/notification.dart';
+
 export 'profile/profile.dart';

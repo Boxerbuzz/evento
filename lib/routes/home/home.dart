@@ -146,7 +146,12 @@ class _HomeAppBar extends StatelessWidget {
                             HSpace.md,
                             EvIcBtn(
                               EvSvgIc(R.I.notification.svgT),
-                              onPressed: () {},
+                              onPressed: () => Navigator.push(
+                                context,
+                                RouteHelper.fadeScale(
+                                  () => const NotificationScreen(),
+                                ),
+                              ),
                             ),
                           ],
                         ),
