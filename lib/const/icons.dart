@@ -16,6 +16,8 @@ class MyIcons {
   String get candle => 'candle';
   String get category => 'category';
   String get check => 'check';
+  String get chevronDown => 'chevron-down';
+  String get chevronUp => 'chevron-up';
   String get clipboard => 'clipboard';
   String get clock => 'clock';
   String get cup => 'cup';
@@ -23,6 +25,7 @@ class MyIcons {
   String get directRight => 'direct-right';
   String get discover => 'discover';
   String get document => 'document-text';
+  String get edit => 'edit';
   String get email => 'sms';
   String get emptyWallet => 'empty-wallet';
   String get eye => 'eye';
@@ -43,6 +46,7 @@ class MyIcons {
   String get medalStar => 'medal-star';
   String get message => 'message';
   String get minus => 'minus';
+  String get moreSquare => 'more-square';
   String get notification => 'notification';
   String get people => 'people';
   String get phone => 'phone';

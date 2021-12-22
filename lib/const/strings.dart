@@ -26,6 +26,11 @@ class MyString {
   String get upcoming => 'Upcoming Events';
   String get popular => 'Popular Events';
   String get ed => 'Event Details';
+  String get notification => 'Notification';
+  String get profile => 'Profile';
+
+
+  String get notifyMsg => 'You currently have no notifications at the moment, new notifications will show up here';
 
   String get lorem =>
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '

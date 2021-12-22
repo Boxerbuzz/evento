@@ -15,13 +15,16 @@ extension NumTimeExtension<T extends num> on T {
   Duration get seconds => milliseconds * Duration.millisecondsPerSecond;
 
   /// Returns a Duration represented in milliseconds
-  Duration get milliseconds => Duration(microseconds: (this * Duration.microsecondsPerMillisecond).toInt());
+  Duration get milliseconds => Duration(
+      microseconds: (this * Duration.microsecondsPerMillisecond).toInt());
 
   /// Returns a Duration represented in microseconds
-  Duration get microseconds => milliseconds ~/ Duration.microsecondsPerMillisecond;
+  Duration get microseconds =>
+      milliseconds ~/ Duration.microsecondsPerMillisecond;
 
   /// Returns a Duration represented in nanoseconds
-  Duration get nanoseconds => microseconds ~/ DurationTimeExtension.nanosecondsPerMicrosecond;
+  Duration get nanoseconds =>
+      microseconds ~/ DurationTimeExtension.nanosecondsPerMicrosecond;
 }
 
 extension DateTimeTimeExtension on DateTime {
@@ -38,24 +41,18 @@ extension DateTimeTimeExtension on DateTime {
   Duration get timeOfDay => hour.hours + minute.minutes + second.seconds;
 
   /// Returns if today, true
-  bool get isToday {
-    return _calculateDifference(this) == 0;
-  }
+  bool get isToday => _calculateDifference(this) == 0;
 
   /// Returns if tomorrow, true
-  bool get isTomorrow {
-    return _calculateDifference(this) == 1;
-  }
+  bool get isTomorrow => _calculateDifference(this) == 1;
 
   /// Returns if yesterday, true
-  bool get wasYesterday {
-    return _calculateDifference(this) == -1;
-  }
+  bool get wasYesterday => _calculateDifference(this) == -1;
 
   /// Returns true if this year is a leap year.
   bool get isLeapYear =>
       // Leap years are used since 1582.
-  year >= 1582 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+      year >= 1582 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 
   /// Returns the amount of days that are in this month.
   ///
@@ -144,7 +141,9 @@ extension DateTimeTimeExtension on DateTime {
 
   static int _calculateDifference(DateTime date) {
     final now = DateTime.now();
-    return DateTime(date.year, date.month, date.day).difference(DateTime(now.year, now.month, now.day)).inDays;
+    return DateTime(date.year, date.month, date.day)
+        .difference(DateTime(now.year, now.month, now.day))
+        .inDays;
   }
 
   /// Returns a range of dates to [to], exclusive start, inclusive end
@@ -153,7 +152,8 @@ extension DateTimeTimeExtension on DateTime {
   /// final end = DateTime(2020);
   /// start.to(end, by: const Duration(days: 365)).forEach(print); // 2020-01-01 00:00:00.000
   /// ```
-  Iterable<DateTime> to(DateTime to, {Duration by = const Duration(days: 1)}) sync* {
+  Iterable<DateTime> to(DateTime to,
+      {Duration by = const Duration(days: 1)}) sync* {
     if (isAtSameMomentAs(to)) return;
 
     if (isBefore(to)) {

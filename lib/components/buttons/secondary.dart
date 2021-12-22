@@ -5,15 +5,16 @@ class EvSecTextBtn extends StatelessWidget {
   final String label;
   final Function()? onPressed;
 
-  const EvSecTextBtn(this.label, {Key? key, this.onPressed})
-      : super(key: key);
+  const EvSecTextBtn(this.label, {Key? key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
     TextStyle txtStyle = TextStyles.footnote.textColor(theme.accentVariant);
     return EvSecBtn(
-        onPressed: onPressed, child: Text(label, style: txtStyle));
+      onPressed: onPressed,
+      child: Text(label, style: txtStyle),
+    );
   }
 }
 
@@ -32,7 +33,7 @@ class EvSecIcBtn extends StatelessWidget {
       onPressed: onPressed,
       minHeight: 36,
       minWidth: 36,
-      contentPadding: Insets.sm,
+      contentPadding: EdgeInsets.all(Insets.sm),
       child: EvSvgIc(icon, size: 20, color: color ?? theme.grey),
     );
   }
@@ -43,17 +44,17 @@ class EvSecBtn extends StatefulWidget {
   final Function()? onPressed;
   final double? minWidth;
   final double? minHeight;
-  final double? contentPadding;
+  final EdgeInsets? contentPadding;
   final Function(bool)? onFocusChanged;
 
   const EvSecBtn(
       {Key? key,
-        this.child,
-        this.onPressed,
-        this.minWidth,
-        this.minHeight,
-        this.contentPadding,
-        this.onFocusChanged})
+      this.child,
+      this.onPressed,
+      this.minWidth,
+      this.minHeight,
+      this.contentPadding,
+      this.onFocusChanged})
       : super(key: key);
 
   @override
@@ -72,10 +73,9 @@ class _EvSecBtnState extends State<EvSecBtn> {
       child: BaseBtn(
         minWidth: widget.minWidth ?? 78,
         minHeight: widget.minHeight ?? 42,
-        contentPadding: EdgeInsets.all(widget.contentPadding ?? Insets.m),
+        contentPadding: widget.contentPadding ?? EdgeInsets.all(Insets.m),
         bgColor: theme.surface,
-        outlineColor:
-        (_isMouseOver ? theme.accentVariant : theme.grey).withOpacity(.35),
+        outlineColor: (_isMouseOver ? theme.primary : theme.primary),
         hoverColor: theme.surface,
         onFocusChanged: widget.onFocusChanged,
         downColor: theme.grey.withOpacity(.35),

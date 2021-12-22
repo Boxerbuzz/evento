@@ -51,35 +51,9 @@ class StringHelper {
     return value;
   }
 
-  static String getDateString() => DateTime.now().toString().split('.').first;
-
-  static String formatDate(String value) =>
-      DateFormat('EEE MMM d, hh:mm aaa').format(DateTime.parse(value));
-
   static String locale(BuildContext context) =>
       Localizations.localeOf(context).toString();
 
-  /// Date formatter with year / number month / day.
-  static DateFormat shortDateFormat(BuildContext context) =>
-      DateFormat.yMd(locale(context));
-
-  /// Date formatter with year / month / day.
-  static DateFormat longDateFormat(BuildContext context) =>
-      DateFormat.yMMMMd(locale(context));
-
-  /// Date formatter with abbreviated month and day.
-  static DateFormat dateShortMD(BuildContext context) =>
-      DateFormat.MMMd(locale(context));
-
-  static DateFormat dateShortMDD(BuildContext context) =>
-      DateFormat.MMMMEEEEd(locale(context));
-
-  static DateFormat timeFullHMD(BuildContext context) =>
-      DateFormat.jm((locale(context)));
-
-  /// Date formatter with year and abbreviated month.
-  static DateFormat dateFormatMY(BuildContext context) =>
-      DateFormat.yMMM(locale(context));
 
   static String generateRandomText([String name = '']) {
     final _name = name;
