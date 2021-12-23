@@ -141,7 +141,12 @@ class _HomeAppBar extends StatelessWidget {
                             _renderLocationDate(),
                             EvIcBtn(
                               EvSvgIc(R.I.search.svgT),
-                              onPressed: () {},
+                              onPressed: () => Navigator.push(
+                                context,
+                                RouteHelper.fadeScale(
+                                  () => const SearchScreen(),
+                                ),
+                              ),
                             ),
                             HSpace.md,
                             EvIcBtn(

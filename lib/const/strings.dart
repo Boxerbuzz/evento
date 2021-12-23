@@ -28,6 +28,8 @@ class MyString {
   String get ed => 'Event Details';
   String get notification => 'Notification';
   String get profile => 'Profile';
+  String get search => 'Search';
+  String get filter => 'Search Filters';
 
 
   String get notifyMsg => 'You currently have no notifications at the moment, new notifications will show up here';

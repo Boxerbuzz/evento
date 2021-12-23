@@ -15,7 +15,11 @@ class NotificationItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(radius: 22),
+          const EvAltAvatar(
+            '',
+            email: 'boxerbuzz559@gmail.com',
+            size: 45,
+          ),
           HSpace.md,
           Expanded(
             child: Column(

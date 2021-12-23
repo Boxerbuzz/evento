@@ -30,9 +30,15 @@ class EventItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  data.timestamp,
-                  style: TextStyles.body2.textColor(theme.primary),
+                Row(
+                  children: [
+                    Text(
+                      data.timestamp,
+                      style: TextStyles.body2.textColor(theme.primary),
+                    ),
+                    Expanded(child: Container()),
+                    EvSvgIc(R.I.archive.svgB),
+                  ],
                 ),
                 VSpace.md,
                 Text(

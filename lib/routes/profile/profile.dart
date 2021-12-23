@@ -27,8 +27,29 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
               VSpace.lg,
-              const CircleAvatar(radius: 45),
-              VSpace.md,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  EvIcBtn(
+                    EvSvgIc(R.I.ticket.svgB, color: Colors.transparent),
+                    onPressed: () {},
+                    padding: const EdgeInsets.all(9),
+                  ),
+                  HSpace.lg,
+                  const EvAltAvatar(
+                    '',
+                    email: 'boxerbuzz559@gmail.com',
+                    size: 90,
+                  ),
+                  HSpace.lg,
+                  EvIcBtn(
+                    EvSvgIc(R.I.ticketStar.svgB, color: theme.surface),
+                    bgColor: ColorHelper.shiftHsl(theme.primary, .1),
+                    padding: const EdgeInsets.all(9),
+                  ),
+                ],
+              ),
+              VSpace.lg,
               Text(
                 'Timothy Ofie',
                 style: TextStyles.h5.size(26).semiBold,
@@ -46,9 +67,12 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text('200', style: TextStyles.body1),
+                      Text('12.9K', style: TextStyles.body1.bold),
                       VSpace.md,
-                      Text('Followers', style: TextStyles.body1),
+                      Text(
+                        'Followers',
+                        style: TextStyles.body1.semiBold.textColor(Colors.grey),
+                      ),
                     ],
                   ),
                   HSpace.md,
@@ -56,9 +80,12 @@ class ProfileScreen extends StatelessWidget {
                   HSpace.md,
                   Column(
                     children: [
-                      Text('200', style: TextStyles.body1),
+                      Text('200', style: TextStyles.body1.bold),
                       VSpace.md,
-                      Text('Following', style: TextStyles.body1),
+                      Text(
+                        'Following',
+                        style: TextStyles.body1.semiBold.textColor(Colors.grey),
+                      ),
                     ],
                   ),
                 ],
