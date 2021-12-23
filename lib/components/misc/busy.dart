@@ -13,8 +13,8 @@ class EvBusy extends StatelessWidget {
       width: 24,
       child: CircularProgressIndicator(
         strokeWidth: 2,
-        valueColor: AlwaysStoppedAnimation<Color>(theme.primary),
-        backgroundColor: color ?? Colors.white,
+        valueColor: AlwaysStoppedAnimation<Color>(theme.txt),
+        backgroundColor: color ?? theme.primary,
       ).center(),
     ).alignment(Alignment.center);
   }

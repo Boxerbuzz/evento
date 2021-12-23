@@ -96,7 +96,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                       bgColor: theme.primary,
                                       onPressed: () {},
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: Insets.l),
+                                        horizontal: Insets.l,
+                                      ),
                                     ),
                                     HSpace.lg,
                                   ],
@@ -183,6 +184,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              const VSpace(4),
                               Text(
                                 'Event Location',
                                 style: TextStyles.h6.semiBold,
@@ -202,7 +204,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                     image: AssetImage('assets/images/map.png'),
                                     fit: BoxFit.cover,
                                   ),
-                                  boxShadow: Shadows.m(theme.grey, .2),
+                                  border: Border.all(
+                                    color: theme.grey,
+                                    width: .9,
+                                  ),
+                                  boxShadow: Shadows.m(theme.grey, .1),
                                 ),
                               ),
                             ],
@@ -283,14 +289,28 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     VSpace.sm,
                     showMore == false
-                        ? Text(
-                            'Show More...',
-                            style: TextStyles.button.textColor(theme.primary),
-                          ).rippleClick(() => setState(() => showMore = true))
-                        : Text(
-                            'Show Less...',
-                            style: TextStyles.button.textColor(theme.primary),
-                          ).rippleClick(() => setState(() => showMore = false)),
+                        ? Row(
+                            children: [
+                              Text(
+                                'Show More...',
+                                style:
+                                    TextStyles.button.textColor(theme.primary),
+                              ).rippleClick(
+                                  () => setState(() => showMore = true)),
+                              EvSvgIc(R.I.chevronDown.svgT, size: 12),
+                            ],
+                          )
+                        : Row(
+                            children: [
+                              Text(
+                                'Show Less...',
+                                style:
+                                    TextStyles.button.textColor(theme.primary),
+                              ).rippleClick(
+                                  () => setState(() => showMore = false)),
+                              EvSvgIc(R.I.chevronUp.svgT, size: 12)
+                            ],
+                          ),
                   ],
                 ),
               ),

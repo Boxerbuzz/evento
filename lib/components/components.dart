@@ -7,6 +7,8 @@ export 'containers/container.dart';
 
 export 'inputs/text_field.dart';
 export 'inputs/check_box.dart';
+export 'inputs/search.dart';
+export 'inputs/multi_select.dart';
 
 
 export 'misc/app_bar.dart';
