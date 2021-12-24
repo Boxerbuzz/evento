@@ -2,8 +2,10 @@ import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
 class EventItem extends StatelessWidget {
-  const EventItem({required this.data, Key? key}) : super(key: key);
+  const EventItem({required this.data, this.margin, Key? key})
+      : super(key: key);
   final EventModel data;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,11 @@ class EventItem extends StatelessWidget {
       borderRadius: Corners.s5Border,
       color: theme.surface,
       shadows: Shadows.m(theme.grey, .1),
-      margin: EdgeInsets.symmetric(horizontal: Insets.l, vertical: 10),
+      margin: margin ??
+          EdgeInsets.symmetric(
+            horizontal: Insets.l,
+            vertical: 10,
+          ),
       child: Row(
         children: [
           Container(
@@ -55,6 +61,8 @@ class EventItem extends StatelessWidget {
                       child: Text(
                         data.location,
                         style: TextStyles.body1,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     )
                   ],
@@ -67,6 +75,6 @@ class EventItem extends StatelessWidget {
     );
   }
 
-  gotoDetails(BuildContext ctx) => Navigator.push(
-      ctx, RouteHelper.fadeScale(() => const DetailScreen()));
+  gotoDetails(BuildContext ctx) =>
+      Navigator.push(ctx, RouteHelper.fadeScale(() => const DetailScreen()));
 }

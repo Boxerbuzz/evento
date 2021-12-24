@@ -20,8 +20,11 @@ class SearchScreen extends StatelessWidget {
                 EvSvgIc(R.I.candle.svgT, color: theme.surface),
                 bgColor: theme.primary,
                 padding: const EdgeInsets.all(12),
-                onPressed: () => showMaterialModalBottomSheet(
+                onPressed: () => showCupertinoModalBottomSheet(
                     context: context,
+                    useRootNavigator: true,
+                    closeProgressThreshold: .5,
+                    barrierColor: Colors.black26,
                     builder: (context) => const FilterScreen()),
               ),
             ],
