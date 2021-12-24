@@ -34,6 +34,7 @@ class MyIcons {
   String get eyeClose => 'eye-slash';
   String get filter => 'filter';
   String get game => 'game';
+  String get gps => 'gps';
   String get global => 'global';
   String get headphone => 'headphone';
   String get health => 'health';

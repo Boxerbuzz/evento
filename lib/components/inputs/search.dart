@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class EvSearchField extends StatefulWidget {
   final void Function(String)? onChanged;
-  const EvSearchField({Key? key, this.onChanged}) : super(key: key);
+  final String? hint;
+  final Widget? suffix;
+  const EvSearchField({Key? key, this.onChanged, this.hint, this.suffix})
+      : super(key: key);
 
   @override
   _SearchFieldState createState() => _SearchFieldState();
@@ -29,18 +32,19 @@ class _SearchFieldState extends State<EvSearchField> {
         filled: true,
         isDense: true,
         fillColor: ColorHelper.shiftHsl(theme.surface, .2),
-        hintText: "Search...",
+        hintText: widget.hint ?? "Search...",
         hintStyle: TextStyles.body1.copyWith(color: theme.txt),
-        suffixIcon: Padding(
-          padding: const EdgeInsetsDirectional.only(end: 5.0),
-          child: EvIcBtn(
-            EvSvgIc(
-              R.I.search.svgT,
-              color: theme.txt,
-              size: 20,
+        suffixIcon: widget.suffix ??
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 5.0),
+              child: EvIcBtn(
+                EvSvgIc(
+                  R.I.search.svgT,
+                  color: theme.txt,
+                  size: 20,
+                ),
+              ),
             ),
-          ),
-        ),
         contentPadding: EdgeInsets.symmetric(
           vertical: 0,
           horizontal: Insets.l,

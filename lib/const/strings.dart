@@ -30,6 +30,7 @@ class MyString {
   String get profile => 'Profile';
   String get search => 'Search';
   String get filter => 'Search Filters';
+  String get explore => 'Explore';
 
 
   String get notifyMsg => 'You currently have no notifications at the moment, new notifications will show up here';

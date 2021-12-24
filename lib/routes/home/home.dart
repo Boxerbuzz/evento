@@ -235,7 +235,7 @@ class _InvitePromo extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
     return EvContainer(
-      height: context.heightPct(.15),
+      height: context.heightPct(.16),
       width: double.infinity,
       color: ColorHelper.shiftHsl(theme.accent.withOpacity(.3), .3),
       margin: EdgeInsets.symmetric(horizontal: Insets.l),

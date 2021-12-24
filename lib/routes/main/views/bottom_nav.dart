@@ -26,7 +26,8 @@ class EVBottomNav extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(_navItems.length, (index) {
-                  return _navItems[index]['isIcon'] == true
+                  var item = _navItems[index];
+                  return item['isIcon'] == true
                       ? InkWell(
                           onTap: () => store.currentPage = index,
                           child: Column(
@@ -35,8 +36,8 @@ class EVBottomNav extends StatelessWidget {
                             children: [
                               EvSvgIc(
                                 store.currentPage == index
-                                    ? _navItems[index]['selected']
-                                    : _navItems[index]['icon'],
+                                    ? item['selected']
+                                    : item['icon'],
                                 color: index == store.currentPage
                                     ? Theme.of(context).colorScheme.primary
                                     : Colors.grey[400],
@@ -44,7 +45,7 @@ class EVBottomNav extends StatelessWidget {
                               ),
                               const VSpace(3),
                               Text(
-                                _navItems[index]['label'],
+                                item['label'],
                                 style: TextStyles.caption.textColor(
                                     index == store.currentPage
                                         ? Theme.of(context).colorScheme.primary
@@ -53,7 +54,39 @@ class EVBottomNav extends StatelessWidget {
                             ],
                           ),
                         )
-                      : Container();
+                      : index == 1
+                          ? InkWell(
+                              onTap: () => Navigator.push(
+                                context,
+                                RouteHelper.fadeScale(
+                                  () => const ExploreScreen(),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  EvSvgIc(
+                                    store.currentPage == index
+                                        ? item['selected']
+                                        : item['icon'],
+                                    color: index == store.currentPage
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Colors.grey[400],
+                                    size: 24,
+                                  ),
+                                  const VSpace(3),
+                                  Text(
+                                    item['label'],
+                                    style: TextStyles.caption.textColor(index ==
+                                            store.currentPage
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Colors.black45),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Container();
                 }),
               ),
             ),
@@ -75,7 +108,7 @@ List<dynamic> get _navItems => [
         "icon": R.I.discover.svgT,
         "selected": R.I.discover.svgB,
         "label": "Explore",
-        "isIcon": true,
+        "isIcon": false,
       },
       {
         "icon": R.I.discover.svgT,
