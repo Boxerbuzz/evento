@@ -13,6 +13,8 @@ export 'explore/explore.dart';
 export 'home/home.dart';
 export 'home/views/event_item.dart';
 
+export 'intro/intro.dart';
+
 export 'main/main.dart';
 export 'main/views/bottom_nav.dart';
 
