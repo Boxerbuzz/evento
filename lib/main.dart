@@ -29,7 +29,7 @@ class Evento extends StatelessWidget {
             textScaleFactor: context.widthPx <= 800 ? 0.8 : 1.9,
           ),
         ),
-        home: const LoginScreen(),
+        home: const IntroScreen(),
       ),
     );
   }

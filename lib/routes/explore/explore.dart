@@ -16,6 +16,7 @@ class ExploreScreen extends StatelessWidget {
                 image: DecorationImage(
                   image: AssetImage('assets/images/map-large.png'),
                   fit: BoxFit.cover,
+                  colorFilter: ColorFilter.srgbToLinearGamma(),
                 ),
               ),
             ),

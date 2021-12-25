@@ -59,7 +59,13 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                     VSpace.xl,
-                    EvPriTextBtn(R.S.signIn, onPressed: () {}),
+                    EvPriTextBtn(
+                      R.S.signIn,
+                      onPressed: () => Navigator.pushAndRemoveUntil(
+                          context,
+                          RouteHelper.fadeScale(() => const MainScreen()),
+                          (route) => false),
+                    ),
                     VSpace.lg,
                     Text('OR', style: TextStyles.h6),
                     VSpace.lg,

@@ -74,4 +74,25 @@ class MockData {
   }
 
   static List<String> avatars = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
+  static List<Map<String, String>> get splashData => [
+        {
+          "text":
+              "Easily find access to upcoming and nearby events at the tip of your fingers and get booked, share events with friends easily.",
+          "image": "assets/images/slide1.svg",
+          "head": "Quick Explore Event's",
+        },
+        {
+          "text":
+              "Easily organize events and activities schedule on a modern interactive calendar, get reminded automatically before the due dates.",
+          "image": "assets/images/slide2.svg",
+          "head": "Organize your Event's",
+        },
+        {
+          "text":
+              "Get personalized and recommended events based on your personal preference and events you attended before.",
+          "image": "assets/images/slide3.svg",
+          "head": "personalized Reminder's",
+        },
+      ];
 }
