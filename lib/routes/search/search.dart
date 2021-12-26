@@ -17,6 +17,13 @@ class SearchScreen extends StatelessWidget {
               const Expanded(child: EvSearchField()),
               HSpace.md,
               EvIcBtn(
+                EvSvgIc(R.I.search.svgT, color: theme.surface),
+                bgColor: theme.primary,
+                padding: const EdgeInsets.all(12),
+                onPressed: () => null,
+              ),
+              HSpace.md,
+              EvIcBtn(
                 EvSvgIc(R.I.candle.svgT, color: theme.surface),
                 bgColor: theme.primary,
                 padding: const EdgeInsets.all(12),

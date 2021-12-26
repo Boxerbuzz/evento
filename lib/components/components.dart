@@ -19,7 +19,6 @@ export 'misc/avatar.dart';
 export 'misc/face_pile.dart';
 export 'misc/busy.dart';
 export 'misc/tab.dart';
-export 'misc/calendar.dart';
 
 export 'scrollables/horizontal_scroll.dart';
 export 'scrollables/event_showcase.dart';
