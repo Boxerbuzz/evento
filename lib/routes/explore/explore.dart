@@ -43,7 +43,6 @@ class ExploreScreen extends StatelessWidget {
                             child: EvSearchField(
                               onChanged: (value) {},
                               hint: 'Find Nearby Events...',
-                              suffix: const SizedBox.shrink(),
                             ),
                           ),
                         ],
@@ -87,7 +86,6 @@ class ExploreScreen extends StatelessWidget {
                           'location': 'Radius Gallery. Santa Cruz, CA',
                           'img': 'e1',
                           'backdrop': 'e1l',
-                          'color': ''
                         },
                       ),
                       margin: EdgeInsets.symmetric(

@@ -1,5 +1,6 @@
 import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -12,9 +13,16 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: theme.surface,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: theme.surface,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ),
+    );
     return SafeArea(
       child: Scaffold(
-        extendBodyBehindAppBar: true,
         bottomNavigationBar: const EVBottomNav(),
         body: Consumer<AppProvider>(
           builder: (context, store, child) {
@@ -33,7 +41,8 @@ class _MainScreenState extends State<MainScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () => showMaterialModalBottomSheet(
-              context: context, builder: (context) => const CreateEventScreen()),
+              context: context,
+              builder: (context) => const CreateEventScreen()),
           child: EvSvgIc(
             R.I.add.svgT,
             color: theme.background,

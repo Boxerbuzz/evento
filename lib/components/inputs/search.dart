@@ -34,21 +34,6 @@ class _SearchFieldState extends State<EvSearchField> {
         fillColor: ColorHelper.shiftHsl(theme.surface, .2),
         hintText: widget.hint ?? "Search...",
         hintStyle: TextStyles.body1.copyWith(color: theme.txt),
-        suffixIcon: widget.suffix ??
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 5.0),
-              child: EvIcBtn(
-                EvSvgIc(
-                  R.I.search.svgT,
-                  color: theme.txt,
-                  size: 20,
-                ),
-              ),
-            ),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 0,
-          horizontal: Insets.l,
-        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: Corners.s5Border,
           borderSide: const BorderSide(color: Colors.white, width: 0.5),

@@ -8,7 +8,6 @@ class MockData {
           'location': 'Radius Gallery. Santa Cruz, CA',
           'img': 'e1',
           'backdrop': 'e1l',
-          'color': ''
         },
         {
           'date': 'Mon, Jun 21. 10:00 PM',
@@ -16,7 +15,6 @@ class MockData {
           'location': 'Longboard Margarita Bar',
           'img': 'e7',
           'backdrop': 'e7l',
-          'color': '',
         },
         {
           'date': 'Mon, Dec 27. 3:00 PM',
@@ -24,7 +22,6 @@ class MockData {
           'location': 'The Garden. Ikoyi, Lagos',
           'img': 'e4',
           'backdrop': 'e4l',
-          'color': ''
         },
         {
           'date': 'Sat, May 1. 2:00 PM',
@@ -32,7 +29,6 @@ class MockData {
           'location': 'Lot 13. Oakland, CA',
           'img': 'e2',
           'backdrop': 'e2',
-          'color': ''
         },
         {
           'date': 'Friday, Apr 24. 1:30 PM',
@@ -40,7 +36,6 @@ class MockData {
           'location': '53 Bush St. San Fransisco, CA',
           'img': 'e5',
           'backdrop': '',
-          'color': ''
         },
         {
           'date': 'Fri, Apr 23. 6:00 PM',
@@ -48,7 +43,6 @@ class MockData {
           'location': 'Lot 13. Oakland, CA',
           'img': 'e6',
           'backdrop': '',
-          'color': ''
         },
         {
           'date': 'Sun, Apr 25. 10:15 AM',
@@ -56,7 +50,6 @@ class MockData {
           'location': '36 Guild Street London, UK',
           'img': 'e8',
           'backdrop': '',
-          'color': ''
         },
         {
           'date': 'Sat, May 1. 2:00 PM',
@@ -64,7 +57,6 @@ class MockData {
           'location': 'Lot 13. Oakland, CA',
           'img': 'e3',
           'backdrop': '',
-          'color': ''
         },
       ];
 
