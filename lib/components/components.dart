@@ -1,6 +1,7 @@
 export 'buttons/button.dart';
 export 'buttons/secondary.dart';
 export 'buttons/icon.dart';
+export 'buttons/link_text.dart';
 
 
 export 'containers/container.dart';

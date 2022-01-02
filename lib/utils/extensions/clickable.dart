@@ -13,7 +13,7 @@ extension ClickableExtensions on Widget {
     );
   }
 
-  Widget rippleClick(void Function()? onTap) {
+  Widget rClick(void Function()? onTap) {
     return Stack(
       children: <Widget>[
         Padding(

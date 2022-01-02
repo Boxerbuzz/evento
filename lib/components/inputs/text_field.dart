@@ -65,7 +65,7 @@ class _EvTextFieldState extends State<EvTextField> {
             hintStyle: TextStyles.body1.textColor(theme.grey),
             labelText: widget.label,
             counterText: '',
-            errorStyle: TextStyles.footnote.textHeight(.1),
+            errorStyle: TextStyles.footnote,
           ),
           obscureText: widget.obscureText ?? false,
           style: TextStyles.body1.textColor(theme.txt),

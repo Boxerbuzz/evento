@@ -145,8 +145,9 @@ class _BaseBtnState extends State<BaseBtn> {
 class EvPriBtn extends StatelessWidget {
   final Widget child;
   final Function()? onPressed;
+  final bool? loading;
 
-  const EvPriBtn({Key? key, required this.child, this.onPressed})
+  const EvPriBtn({Key? key, required this.child, this.onPressed, this.loading})
       : super(key: key);
 
   @override
@@ -154,14 +155,27 @@ class EvPriBtn extends StatelessWidget {
     AppTheme theme = context.watch();
     return BaseBtn(
       minWidth: context.widthPct(.7),
+      width: context.widthPct(.7),
       minHeight: 50,
       useBtnText: true,
       bgColor: theme.primaryVariant,
       hoverColor: theme.isDark ? theme.accentVariant : theme.accentVariant,
       downColor: theme.primary,
       borderRadius: Corners.s5,
-      child: child,
-      onPressed: onPressed,
+      child: Stack(
+        children: [
+          child.center(),
+          loading == true
+              ? const SizedBox(
+                      child: EvBusy(color: Colors.white), height: 12, width: 12)
+                  .alignment(Alignment.centerRight)
+              : const SizedBox.shrink(),
+        ],
+      ),
+      onPressed: () {
+        AppHelper.unFocus();
+        loading == true ? null : onPressed!();
+      },
     );
   }
 }
@@ -169,15 +183,19 @@ class EvPriBtn extends StatelessWidget {
 class EvPriTextBtn extends StatelessWidget {
   final String label;
   final Function()? onPressed;
+  final bool? loading;
 
-  const EvPriTextBtn(this.label, {Key? key, this.onPressed}) : super(key: key);
+  const EvPriTextBtn(this.label,
+      {Key? key, this.onPressed, this.loading = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextStyle txtStyle = (TextStyles.body1).textColor(Colors.white);
     return EvPriBtn(
       onPressed: onPressed,
-      child: Text(label, style: txtStyle),
+      child: Text(label, style: txtStyle).center(),
+      loading: loading,
     );
   }
 }

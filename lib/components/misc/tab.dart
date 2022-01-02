@@ -6,12 +6,12 @@ class EvTabBar extends StatelessWidget {
   final double? width;
   final List<String> sections;
   final int index;
-  static const List<String> defaults = ["foo", "bar"];
+  static const List<String> _defaults = ["foo", "bar"];
 
   const EvTabBar({
     Key? key,
     this.width,
-    this.sections = defaults,
+    this.sections = _defaults,
     this.index = 0,
     this.onTabPressed,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class EvTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
     List<Widget> clickableLabels =
-    sections.map((e) => _clickableLabel(e, theme)).toList();
+        sections.map((e) => _clickableLabel(e, theme)).toList();
 
     double targetAlignX = -1 + (index * 1 / (sections.length - 1)) * 2;
     return RepaintBoundary(
@@ -30,7 +30,7 @@ class EvTabBar extends StatelessWidget {
           _roundedBox(fill: theme.primary)
               .fractionallySizedBox(widthFactor: 1 / sections.length)
               .alignment(Alignment(targetAlignX, 0), animate: true)
-              .animate(Durations.slow, Curves.easeOut),
+              .animate(Durations.fast, Curves.easeOut),
           Row(children: clickableLabels)
         ],
       ).height(30),
@@ -60,10 +60,10 @@ class EvTabBar extends StatelessWidget {
       style: TextStyles.body2.bold
           .textColor(isSelected ? selected : notSelected)
           .scale(fontScale),
-      child: Text(e.toUpperCase())
+      child: Text(e)
           .center()
           .clickable(() => onTabPressed?.call(sections.indexOf(e)),
-          opaque: true)
+              opaque: true)
           .expanded(),
     );
   }

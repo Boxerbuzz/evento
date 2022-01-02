@@ -71,7 +71,7 @@ class EventItem extends StatelessWidget {
             ),
           )
         ],
-      ).padding(all: Insets.m).rippleClick(() => gotoDetails(context)),
+      ).padding(all: Insets.m).rClick(() => gotoDetails(context)),
     );
   }
 

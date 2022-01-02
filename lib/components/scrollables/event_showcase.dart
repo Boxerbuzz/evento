@@ -254,7 +254,7 @@ class _Item extends StatelessWidget {
               ),
             ],
           ),
-        ).rippleClick(()=> gotoDetails(context)),
+        ).rClick(()=> gotoDetails(context)),
       ),
     );
   }

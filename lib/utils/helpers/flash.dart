@@ -30,16 +30,11 @@ class FlashHelper {
     _buildCompleter = Completer<BuildContext>();
   }
 
-  static TextStyle _titleStyle(BuildContext context, [Color? color]) {
-    var theme = Theme.of(context);
-    return (theme.dialogTheme.titleTextStyle ?? theme.textTheme.headline6)!
-        .copyWith(color: color);
-  }
+  static TextStyle _titleStyle([Color? color]) =>
+      TextStyles.body1.textColor(color!).bold;
 
-  static TextStyle _contentStyle(BuildContext context, [Color? color]) {
-    var theme = Theme.of(context);
-    return (theme.dialogTheme.contentTextStyle ?? theme.textTheme.bodyText2)!
-        .copyWith(color: color);
+  static TextStyle _contentStyle([Color? color]) {
+    return TextStyles.body3.textColor(color!);
   }
 
   static Future<T?>? busy<T>(BuildContext context,
@@ -68,17 +63,17 @@ class FlashHelper {
     BuildContext context, {
     String? title,
     required String message,
-    MessageStatus status = MessageStatus.info,
+    EvFS status = EvFS.info,
     Duration duration = const Duration(seconds: 10),
   }) {
-    Color color = status == MessageStatus.error
+    Color color = status == EvFS.error
         ? Colors.redAccent
-        : status == MessageStatus.info
+        : status == EvFS.info
             ? Colors.amber
             : Colors.greenAccent;
-    IconData icon = status == MessageStatus.error
+    IconData icon = status == EvFS.error
         ? Icons.close
-        : status == MessageStatus.info
+        : status == EvFS.info
             ? Icons.info
             : Icons.check;
     return showFlash<T>(
@@ -89,22 +84,22 @@ class FlashHelper {
           controller: controller,
           horizontalDismissDirection: HorizontalDismissDirection.horizontal,
           backgroundColor: Colors.black87,
+          alignment: Alignment.bottomCenter,
+          margin: EdgeInsets.all(Insets.l),
+          borderRadius: Corners.s8Border,
           child: FlashBar(
-            title: title == null
-                ? null
-                : Text(title, style: _titleStyle(context, Colors.white)),
-            content: Text(message, style: _contentStyle(context, Colors.white)),
+            title: Text(title ?? 'Evento', style: _titleStyle(Colors.white)),
+            content: Text(message, style: _contentStyle(Colors.white)),
             icon: Icon(icon, color: color),
             indicatorColor: color,
           ),
-          alignment: Alignment.bottomRight,
         );
       },
     );
   }
 }
 
-enum MessageStatus { error, info, success }
+enum EvFS { error, info, success }
 
 typedef ChildBuilder<T> = Widget Function(
     BuildContext context, FlashController<T> controller, StateSetter setState);

@@ -28,7 +28,7 @@ class EvSectionHeader extends StatelessWidget {
                 HSpace.sm,
                 EvSvgIc(R.I.arrowRight.svgT, size: 15),
               ],
-            ).rippleClick(() => click),
+            ).rClick(() => click),
           ],
         ),
         VSpace.lg

@@ -107,14 +107,14 @@ class _IntroScreenState extends State<IntroScreen> {
                         Text(
                           'Skip',
                           style: TextStyles.body1.textColor(theme.surface).bold,
-                        ).rippleClick(() {}),
+                        ).rClick(() {}),
                         Text(
                           'Next',
                           style: TextStyles.body1.textColor(theme.surface).bold,
-                        ).rippleClick(
+                        ).rClick(
                           () => Navigator.pushAndRemoveUntil(
                               context,
-                              RouteHelper.fadeScale(() => const LoginScreen()),
+                              RouteHelper.fadeScale(() => const AuthScreen()),
                               (route) => false),
                         ),
                       ],

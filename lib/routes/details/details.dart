@@ -295,7 +295,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Show More...',
                                 style:
                                     TextStyles.button.textColor(theme.primary),
-                              ).rippleClick(
+                              ).rClick(
                                   () => setState(() => showMore = true)),
                               EvSvgIc(R.I.chevronDown.svgT, size: 12),
                             ],
@@ -306,7 +306,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Show Less...',
                                 style:
                                     TextStyles.button.textColor(theme.primary),
-                              ).rippleClick(
+                              ).rClick(
                                   () => setState(() => showMore = false)),
                               EvSvgIc(R.I.chevronUp.svgT, size: 12)
                             ],

@@ -1,5 +1,4 @@
-export 'authentication/login.dart';
-export 'authentication/signup.dart';
+export 'authentication/authentication.dart';
 export 'authentication/welcome.dart';
 
 export 'create/create.dart';

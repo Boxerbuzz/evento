@@ -1,4 +1,4 @@
-package com.timixyz.evento
+package com.ev.evento
 
 import io.flutter.embedding.android.FlutterActivity
 

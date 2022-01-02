@@ -110,14 +110,38 @@ class _EventScreenState extends State<EventScreen> {
           child: ValueListenableBuilder<List<EventModel>>(
             valueListenable: _selectedEvents,
             builder: (context, value, _) {
-              return ListView.builder(
-                itemCount: value.length,
-                padding: EdgeInsets.only(top: Insets.m),
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) => _Item(
-                  model: value[index],
-                ),
-              );
+              return value.isEmpty
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        EvSvgIc(
+                          R.I.calendar.svgB,
+                          size: 100,
+                          color: ColorHelper.shiftHsl(theme.primary, .15),
+                        ).center(),
+                        VSpace.sm,
+                        Text(
+                          'No Events',
+                          style: TextStyles.h6.bold.textColor(theme.txt),
+                        ),
+                        Text(
+                          R.S.eventsMsg,
+                          style: TextStyles.body1
+                              .textColor(theme.txt)
+                              .textHeight(1.5),
+                          textAlign: TextAlign.center,
+                        ).padding(horizontal: 50, top: Insets.sm),
+                      ],
+                    ).animate(600.milliseconds, Curves.easeOutExpo)
+                  : ListView.builder(
+                      itemCount: value.length,
+                      padding: EdgeInsets.only(top: Insets.m),
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) => _Item(
+                        model: value[index],
+                      ),
+                    ).animate(600.milliseconds, Curves.easeOutExpo);
             },
           ),
         ),

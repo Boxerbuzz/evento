@@ -8,7 +8,7 @@ class MyString {
   String get noAccount => "Don't have an account?";
   String get haveAccount => "Have an account?";
 
-  String get singInWelcome => 'Welcome back Lauretta 🤗🫂!';
+  String get singInWelcome => 'Welcome back SignIn to continue 🤗🫂!';
   String get singUpWelcome => 'Signup to continue';
 
   String get flFirstName => 'firstName';
@@ -32,8 +32,10 @@ class MyString {
   String get filter => 'Search Filters';
   String get explore => 'Explore';
 
+  String get notifyMsg =>
+      'You currently have no notifications at the moment, new notifications will show up here';
 
-  String get notifyMsg => 'You currently have no notifications at the moment, new notifications will show up here';
+  String get eventsMsg => 'You currently have no events scheduled for today.';
 
   String get lorem =>
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
@@ -43,4 +45,12 @@ class MyString {
       'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla '
       'pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa '
       'qui officia deserunt mollit anim id est laborum.';
+
+  String get dbUser => 'users';
+  String get dbEvents => 'events';
+  String get dbPrefs => 'prefs';
+  String get dbFav => 'favourites';
+  String get dbPromo => 'promotions';
+  String get dbMyTickets => 'tickets';
+  String get dbNotify => 'notifications';
 }
