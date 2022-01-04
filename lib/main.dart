@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(
     MultiProvider(
       providers: [
@@ -20,8 +21,15 @@ void main() async {
   );
 }
 
-class Evento extends StatelessWidget {
+class Evento extends StatefulWidget {
   const Evento({Key? key}) : super(key: key);
+
+  @override
+  State<Evento> createState() => _EventoState();
+}
+
+class _EventoState extends State<Evento> {
+  AuthApi api = AuthApi();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,20 @@ class Evento extends StatelessWidget {
         theme: theme.themeData,
         navigatorKey: R.G.navKey,
         debugShowCheckedModeBanner: false,
-        home: const AuthScreen(),
+        home: DesignGridOverlay(
+          child: StreamBuilder<User?>(
+            stream: api.auth.authStateChanges(),
+            builder: (context, s) {
+              if (s.connectionState == ConnectionState.waiting) {
+                return const Material(child: EvBusy());
+              }
+              if (!mounted) api.fbUser = s.data;
+              return s.data == null ? const AuthScreen() : const SetupScreen();
+            },
+          ),
+          alignment: Alignment.center,
+          grids: [GridLayout()],
+        ),
         builder: (context, child) => MediaQuery(
           child: child!,
           data: MediaQuery.of(context).copyWith(

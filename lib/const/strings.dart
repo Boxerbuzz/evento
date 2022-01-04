@@ -37,6 +37,8 @@ class MyString {
 
   String get eventsMsg => 'You currently have no events scheduled for today.';
 
+  String get fetchMsg => 'There was an error fetching the requested data.';
+
   String get lorem =>
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
       'eiusmod tempor incididunt ut labore et dolore magna aliqua. '
