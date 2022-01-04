@@ -40,15 +40,16 @@ class _MainScreenState extends State<MainScreen> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: theme.primaryVariant,
           onPressed: () => showMaterialModalBottomSheet(
-              context: context,
-              builder: (context) => const CreateEventScreen()),
+            context: context,
+            builder: (context) => const CreateEventScreen(),
+          ),
           child: EvSvgIc(
-            R.I.add.svgT,
+            R.I.addItem.svgB,
             color: theme.background,
             size: 24,
           ),
-          backgroundColor: theme.primaryVariant,
         ),
       ),
     );

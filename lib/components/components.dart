@@ -5,11 +5,14 @@ export 'buttons/link_text.dart';
 
 
 export 'containers/container.dart';
+export 'containers/grid.dart';
 
 export 'inputs/text_field.dart';
 export 'inputs/check_box.dart';
 export 'inputs/search.dart';
 export 'inputs/multi_select.dart';
+export 'inputs/dialog.dart';
+export 'inputs/category_selector.dart';
 
 
 export 'misc/app_bar.dart';

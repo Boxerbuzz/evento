@@ -7,7 +7,11 @@ class GridLayout {
   final int numCols;
   final double breakPt;
 
-  GridLayout({this.gutters, this.padding, this.numCols = 4, this.breakPt = 10});
+  GridLayout(
+      {this.gutters = EdgeInsets.zero,
+      this.padding = 10,
+      this.numCols = 10,
+      this.breakPt = .5});
 }
 
 class DesignGridOverlay extends StatefulWidget {
@@ -31,11 +35,6 @@ class DesignGridOverlay extends StatefulWidget {
 
 class _DesignGridOverlayState extends State<DesignGridOverlay> {
   double gridAlpha = 0;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

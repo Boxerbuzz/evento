@@ -1,7 +1,7 @@
 import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
-abstract class EvBaseCommand extends BaseApi{
+abstract class EvBaseCommand extends BaseApi {
   static BuildContext? _lastKnownRoot;
   BuildContext? context;
   NavigatorState? get rootNav => R.G.nav;

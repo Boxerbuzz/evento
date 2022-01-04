@@ -1,5 +1,6 @@
 export 'authentication/authentication.dart';
 export 'authentication/welcome.dart';
+export 'authentication/setup.dart';
 
 export 'create/create.dart';
 

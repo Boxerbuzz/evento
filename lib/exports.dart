@@ -10,7 +10,7 @@ export 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 export 'package:reactive_forms/reactive_forms.dart';
 export 'package:intl/intl.dart';
 export 'package:table_calendar/table_calendar.dart';
-
+export 'package:animations/animations.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 
 export 'components/components.dart';

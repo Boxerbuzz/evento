@@ -13,4 +13,12 @@ abstract class BaseApi extends ChangeNotifier {
     _credential = value;
     notifyListeners();
   }
+
+  User? _fbUser;
+  User? get fbUser => _fbUser;
+
+  set fbUser(User? value) {
+    fbUser = value;
+    notifyListeners();
+  }
 }

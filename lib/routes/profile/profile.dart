@@ -31,9 +31,10 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   EvIcBtn(
-                    EvSvgIc(R.I.ticket.svgB, color: Colors.transparent),
-                    onPressed: () {},
+                    EvSvgIc(R.I.logout.svgB, color: theme.surface),
+                    onPressed: () => AuthCmd(context).signOut(),
                     padding: const EdgeInsets.all(9),
+                    bgColor: ColorHelper.shiftHsl(theme.primary, .1),
                   ),
                   HSpace.lg,
                   const EvAltAvatar(
@@ -57,8 +58,7 @@ class ProfileScreen extends StatelessWidget {
               VSpace.sm,
               Text(
                 'Boxerbuzz559@gmail.com',
-                style:
-                    TextStyles.body1.semiBold.textColor(Colors.grey.shade600),
+                style: TextStyles.body1.textColor(Colors.grey.shade600),
               ),
               VSpace.lg,
               Row(

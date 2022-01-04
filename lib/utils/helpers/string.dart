@@ -29,6 +29,16 @@ class StringHelper {
   static String titleCase(String s) =>
       s.split(" ").map(titleCaseSingle).join(" ");
 
+  static String genFbId(String id) {
+    String temp;
+    if (isNotEmpty(id) && id.length > 6) {
+      temp = id.substring(0, 6);
+    } else {
+      return '';
+    }
+    return 'Evento-$temp';
+  }
+
   static String genId() {
     final rnd = Random.secure();
     final bytes = List<int>.generate(16, (_) => rnd.nextInt(256));
@@ -53,7 +63,6 @@ class StringHelper {
 
   static String locale(BuildContext context) =>
       Localizations.localeOf(context).toString();
-
 
   static String generateRandomText([String name = '']) {
     final _name = name;

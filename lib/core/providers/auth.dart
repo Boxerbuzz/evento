@@ -26,6 +26,22 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  UserModel _user = UserModel();
+  UserModel get user => _user;
+
+  set user(UserModel value) {
+    _user = value;
+    notifyListeners();
+  }
+
+  List<String> _liked = [];
+  List<String> get liked => _liked;
+
+  set liked(List<String> value) {
+    _liked = value.map((e) => e).toList();
+    notifyListeners();
+  }
+
   bool _isLogin = false;
   bool get isLogin => _isLogin;
 
