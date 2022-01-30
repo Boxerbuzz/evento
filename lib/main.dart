@@ -43,19 +43,15 @@ class _EventoState extends State<Evento> {
         theme: theme.themeData,
         navigatorKey: R.G.navKey,
         debugShowCheckedModeBanner: false,
-        home: DesignGridOverlay(
-          child: StreamBuilder<User?>(
-            stream: api.auth.authStateChanges(),
-            builder: (context, s) {
-              if (s.connectionState == ConnectionState.waiting) {
-                return const Material(child: EvBusy());
-              }
-              if (!mounted) api.fbUser = s.data;
-              return s.data == null ? const AuthScreen() : const SetupScreen();
-            },
-          ),
-          alignment: Alignment.center,
-          grids: [GridLayout()],
+        home: StreamBuilder<User?>(
+          stream: api.auth.authStateChanges(),
+          builder: (context, s) {
+            if (s.connectionState == ConnectionState.waiting) {
+              return const Material(child: EvBusy());
+            }
+            if (!mounted) api.fbUser = s.data;
+            return s.data == null ? const AuthScreen() : const MainScreen();
+          },
         ),
         builder: (context, child) => MediaQuery(
           child: child!,

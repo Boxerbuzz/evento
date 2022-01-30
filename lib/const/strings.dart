@@ -22,6 +22,8 @@ class MyString {
   String get firstName => 'First Name';
   String get lastName => 'Last Name';
   String get phoneNumber => 'Phone Number';
+  String get location => 'Location';
+  String get likes => 'Preferred Events';
 
   String get upcoming => 'Upcoming Events';
   String get popular => 'Popular Events';

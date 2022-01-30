@@ -55,7 +55,9 @@ class AuthCmd extends EvBaseCommand {
   }
 
   Future<void> getUser() async {
-    DocumentSnapshot? doc = await _api.user();
+    DocumentSnapshot? _doc = await _api.user();
+
+
   }
 
   Future<void> signOut() async {

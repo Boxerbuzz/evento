@@ -13,6 +13,7 @@ export 'inputs/search.dart';
 export 'inputs/multi_select.dart';
 export 'inputs/dialog.dart';
 export 'inputs/category_selector.dart';
+export 'inputs/radio_input.dart';
 
 
 export 'misc/app_bar.dart';
