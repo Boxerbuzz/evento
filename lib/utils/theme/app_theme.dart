@@ -51,20 +51,7 @@ class AppTheme {
           ..focus = const Color(0xFF7D67EE);
 
       case ThemeType.dark:
-        return AppTheme(true)
-          ..background = const Color(0xff121212)
-          ..bg2 = const Color(0xff2c2c2c)
-          ..surface = const Color(0xff252525)
-          ..primary = const Color(0xff00a086)
-          ..primaryVariant = const Color(0xff00caa5)
-          ..secondary = const Color(0xff00caa5)
-          ..secondaryVariant = const Color(0xfff19e46)
-          ..accent = const Color(0xff5BC91A)
-          ..accentVariant = const Color(0xffa8b3b0)
-          ..grey = const Color(0xffced4d3)
-          ..greyStrong = const Color(0xffffffff)
-          ..error = const Color(0xffe55642)
-          ..focus = const Color(0xff0ee2b1);
+        return AppTheme(true);
       default:
         return AppTheme.fromType(defaultTheme);
     }

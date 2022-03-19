@@ -23,7 +23,7 @@ class _IntroScreenState extends State<IntroScreen> {
             onPageChanged: (value) => setState(() => pageIndex = value),
             itemCount: MockData.splashData.length,
             itemBuilder: (context, index) => Container(
-              color: theme.primary,
+              color: theme.accentVariant,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
