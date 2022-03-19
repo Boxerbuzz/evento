@@ -7,7 +7,6 @@ class EvGlobal {
   NavigatorState? get nav => navKey.currentState!;
 
   Map<String, WidgetBuilder> myRoutes = {
-    '*': (_) => const WelcomeScreen(),
     'home': (_) => const MainScreen(),
     'login': (_) => const AuthScreen(),
     'notification': (_) => const NotificationScreen(),

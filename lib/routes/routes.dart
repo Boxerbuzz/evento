@@ -1,6 +1,7 @@
 export 'authentication/authentication.dart';
-export 'authentication/welcome.dart';
 export 'authentication/setup.dart';
+export 'authentication/signin.dart';
+export 'authentication/signup.dart';
 
 export 'create/create.dart';
 
