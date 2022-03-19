@@ -1,16 +1,42 @@
-# evento
+# Evento
 
-A new Flutter project.
 
-## Getting Started
+### Screenshots
 
-This project is a starting point for a Flutter application.
+<p>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/1.png" width="200px" hspace="10"/>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/2.png" width="200px" hspace="10"/>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/3.png" width="200px" hspace="10"/>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+<p>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/4.png" width="200px" hspace="10"/>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/5.png" width="200px" hspace="10"/>
+    <img src="https://raw.githubusercontent.com/boxerbuzz/evento/main/screenshots/6.png" width="200px" hspace="10"/>
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Run Locally
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Clone the project
+
+```bash
+  git clone https://github.com/Boxerbuzz/evento.git
+```
+
+Go to the project directory
+
+```bash
+  cd evento
+```
+
+Install dependencies
+
+```bash
+  flutter pub get
+```
+
+Run the app android or ios simulator
+
+```bash
+  flutter run
+```
