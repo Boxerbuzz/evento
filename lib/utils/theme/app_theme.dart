@@ -76,9 +76,9 @@ class AppTheme {
       colorScheme: ColorScheme(
         brightness: isDark ? Brightness.dark : Brightness.light,
         primary: primary,
-        primaryVariant: primaryVariant,
+        primaryContainer: primaryVariant,
         secondary: secondary,
-        secondaryVariant: ColorHelper.shiftHsl(secondaryVariant, -.2),
+        secondaryContainer: ColorHelper.shiftHsl(secondaryVariant, -.2),
         background: background,
         surface: surface,
         onBackground: surface,

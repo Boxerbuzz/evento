@@ -57,7 +57,7 @@ class HttpClient {
     try {
       response = await request();
     } on Exception catch (e) {
-      AppHelper.print(e);
+      AppHelper.p(e);
     }
     return HttpResponse(response!);
   }

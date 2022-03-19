@@ -51,9 +51,9 @@ class AppHelper {
     });
   }
 
-  static void print(Object e) {
+  static void p(dynamic e) {
     if (kDebugMode) {
-      print(e);
+      print('$e');
     }
   }
 }

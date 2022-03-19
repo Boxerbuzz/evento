@@ -9,22 +9,24 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.4
-  firebase_auth: ^3.3.4
-  google_sign_in: ^5.2.1
-  google_fonts: ^2.2.0
-  firebase_storage: ^10.2.4
-  cloud_firestore: ^3.1.5
-  firebase_core: ^1.10.6
-  connectivity_plus: ^2.1.0
+  firebase_auth: ^3.3.10
+  google_sign_in: ^5.2.4
+  google_fonts: ^2.3.1
+  firebase_storage: ^10.2.9
+  cloud_firestore: ^3.1.10
+  firebase_core: ^1.13.1
+  connectivity_plus: ^2.2.1
   provider: ^6.0.2
   animations: ^2.0.2
   styled_widget: ^0.4.0+3
-  flash: ^2.0.3+1
-  modal_bottom_sheet: ^2.0.0
-  flutter_svg: ^1.0.0
-  reactive_forms: ^11.0.0
+  flash: ^2.0.3+2
+  modal_bottom_sheet: ^2.0.1
+  flutter_svg: ^1.0.3
+  reactive_forms: ^11.0.1
   intl: ^0.17.0
-  table_calendar: ^3.0.3
+  table_calendar: ^3.0.4
+  geocoding: ^2.0.4
+  location: ^4.3.0
 
 
 dev_dependencies:
