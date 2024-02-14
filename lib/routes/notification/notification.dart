@@ -12,8 +12,8 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: EvAppBar(title: R.S.notification),
       body: hasData == true
-          ? Column(
-              children: const [
+          ? const Column(
+              children: [
                 NotificationItem(),
                 NotificationItem(mini: true),
               ],

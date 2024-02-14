@@ -19,7 +19,7 @@ class _EventScreenState extends State<EventScreen> {
   getAllEvents() {
     Random rand = Random.secure();
     Color? color;
-    final _kEventSource = {
+    final kEventSource = {
       for (var item in List.generate(
         20,
         (index) {
@@ -37,7 +37,7 @@ class _EventScreenState extends State<EventScreen> {
 
     return LinkedHashMap<DateTime, List<EventModel>>(
         equals: isSameDay, hashCode: getHashCode)
-      ..addAll(_kEventSource);
+      ..addAll(kEventSource);
   }
 
   @override

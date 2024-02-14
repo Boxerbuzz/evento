@@ -44,7 +44,7 @@ class BaseBtn extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BaseBtnState createState() => _BaseBtnState();
+  State<BaseBtn> createState() => _BaseBtnState();
 }
 
 class _BaseBtnState extends State<BaseBtn> {
@@ -80,15 +80,9 @@ class _BaseBtnState extends State<BaseBtn> {
         boxShadow: _isFocused
             ? [
                 BoxShadow(
-                    color: theme.surface.withOpacity(0.25),
-                    offset: Offset.zero,
-                    blurRadius: 8.0,
-                    spreadRadius: 0.0),
+                    color: theme.surface.withOpacity(0.25), offset: Offset.zero, blurRadius: 8.0, spreadRadius: 0.0),
                 BoxShadow(
-                    color: widget.bgColor ?? theme.surface,
-                    offset: Offset.zero,
-                    blurRadius: 8.0,
-                    spreadRadius: -4.0),
+                    color: widget.bgColor ?? theme.surface, offset: Offset.zero, blurRadius: 8.0, spreadRadius: -4.0),
               ]
             : [],
       ),
@@ -116,16 +110,8 @@ class _BaseBtnState extends State<BaseBtn> {
         focusElevation: 0,
         fillColor: Colors.transparent,
         hoverColor: widget.hoverColor ?? theme.surface,
-        highlightColor:
-            widget.downColor ?? theme.primaryVariant.withOpacity(.1),
+        highlightColor: widget.downColor ?? theme.primaryVariant.withOpacity(.1),
         focusColor: widget.focusColor ?? Colors.grey.withOpacity(0.35),
-        child: Opacity(
-          child: Padding(
-            padding: widget.contentPadding ?? const EdgeInsets.all(18),
-            child: widget.child,
-          ),
-          opacity: widget.onPressed != null ? 1 : .7,
-        ),
         constraints: BoxConstraints(
           minHeight: widget.minHeight ?? 0,
           minWidth: widget.minWidth ?? context.widthPct(.7),
@@ -134,9 +120,15 @@ class _BaseBtnState extends State<BaseBtn> {
         shape: widget.shape ??
             RoundedRectangleBorder(
               side: BorderSide(color: widget.outlineColor, width: 1.5),
-              borderRadius:
-                  BorderRadius.circular(widget.borderRadius ?? Corners.s5),
+              borderRadius: BorderRadius.circular(widget.borderRadius ?? Corners.s5),
             ),
+        child: Opacity(
+          opacity: widget.onPressed != null ? 1 : .7,
+          child: Padding(
+            padding: widget.contentPadding ?? const EdgeInsets.all(18),
+            child: widget.child,
+          ),
+        ),
       ),
     );
   }
@@ -147,8 +139,7 @@ class EvPriBtn extends StatelessWidget {
   final Function()? onPressed;
   final bool? loading;
 
-  const EvPriBtn({Key? key, required this.child, this.onPressed, this.loading})
-      : super(key: key);
+  const EvPriBtn({Key? key, required this.child, this.onPressed, this.loading}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +157,7 @@ class EvPriBtn extends StatelessWidget {
         children: [
           child.center(),
           loading == true
-              ? const SizedBox(
-                      child: EvBusy(color: Colors.white), height: 12, width: 12)
+              ? const SizedBox(height: 12, width: 12, child: EvBusy(color: Colors.white))
                   .alignment(Alignment.centerRight)
               : const SizedBox.shrink(),
         ],
@@ -185,17 +175,15 @@ class EvPriTextBtn extends StatelessWidget {
   final Function()? onPressed;
   final bool? loading;
 
-  const EvPriTextBtn(this.label,
-      {Key? key, this.onPressed, this.loading = false})
-      : super(key: key);
+  const EvPriTextBtn(this.label, {Key? key, this.onPressed, this.loading = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextStyle txtStyle = (TextStyles.body1).textColor(Colors.white);
     return EvPriBtn(
       onPressed: onPressed,
-      child: Text(label, style: txtStyle).center(),
       loading: loading,
+      child: Text(label, style: txtStyle).center(),
     );
   }
 }

@@ -30,33 +30,25 @@ class FlashHelper {
     _buildCompleter = Completer<BuildContext>();
   }
 
-  static TextStyle _titleStyle([Color? color]) =>
-      TextStyles.body1.textColor(color!).bold;
+  static TextStyle _titleStyle([Color? color]) => TextStyles.body1.textColor(color!).bold;
 
   static TextStyle _contentStyle([Color? color]) {
     return TextStyles.body3.textColor(color!);
   }
 
-  static Future<T?>? busy<T>(BuildContext context,
-      {required Completer<T> completer}) {
-    var controller = FlashController<T>(
-      context,
-      persistent: true,
-      builder: (context, FlashController<T> controller) => Flash.dialog(
-        controller: controller,
-        barrierDismissible: false,
-        backgroundColor: Colors.black87,
-        margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-        borderRadius: Corners.s5Border,
-        child: const Padding(
-          padding: EdgeInsets.all(30.0),
-          child: CircularProgressIndicator(),
-        ),
-        useSafeArea: false,
-      ),
+  static Future<T?>? busy<T>(BuildContext context, {required Completer<T> completer}) {
+    return showFlash(
+      context: context,
+      builder: (_, controller) {
+        return Flash(
+          controller: controller,
+          child: const Padding(
+            padding: EdgeInsets.all(30.0),
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
     );
-    completer.future.then((value) => controller.dismiss(value));
-    return controller.show();
   }
 
   static Future<T?> snack<T>(
@@ -82,16 +74,12 @@ class FlashHelper {
       builder: (context, controller) {
         return Flash(
           controller: controller,
-          horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-          backgroundColor: Colors.black87,
-          alignment: Alignment.bottomCenter,
-          margin: EdgeInsets.all(Insets.l),
-          borderRadius: Corners.s8Border,
           child: FlashBar(
             title: Text(title ?? 'Evento', style: _titleStyle(Colors.white)),
             content: Text(message, style: _contentStyle(Colors.white)),
             icon: Icon(icon, color: color),
             indicatorColor: color,
+            controller: controller,
           ),
         );
       },
@@ -101,5 +89,4 @@ class FlashHelper {
 
 enum EvFS { error, info, success }
 
-typedef ChildBuilder<T> = Widget Function(
-    BuildContext context, FlashController<T> controller, StateSetter setState);
+typedef ChildBuilder<T> = Widget Function(BuildContext context, FlashController<T> controller, StateSetter setState);

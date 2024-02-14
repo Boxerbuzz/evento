@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 enum ShorteningPolicy { none, thousand, mill, bill, trill, auto }
 

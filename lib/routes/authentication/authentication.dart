@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:evento/exports.dart';
+import 'package:flutter/material.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class AuthScreen extends StatelessWidget {
             VSpace(Insets.l),
             Text(R.S.singInWelcome, style: TextStyles.h6.semiBold),
             VSpace(Insets.l),
-            Consumer<AuthProvider>(builder: (context, store, child) {
+            Consumer<AppAuthProvider>(builder: (context, store, child) {
               return Column(
                 children: [
                   EvTabBar(
@@ -52,9 +52,3 @@ class AuthScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

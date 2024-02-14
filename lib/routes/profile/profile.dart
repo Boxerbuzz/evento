@@ -111,8 +111,8 @@ class ProfileScreen extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: Insets.l),
-            child: Column(
-              children: const [],
+            child: const Column(
+              children: [],
             ),
           ),
         ),

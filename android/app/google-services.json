@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "70767198657",
+    "firebase_url": "https://evento-global-default-rtdb.firebaseio.com",
     "project_id": "evento-global",
     "storage_bucket": "evento-global.appspot.com"
   },
@@ -10,35 +11,6 @@
         "mobilesdk_app_id": "1:70767198657:android:99e8403ff4d09f06d7af40",
         "android_client_info": {
           "package_name": "com.ev.evento"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "70767198657-sar9h5gnbit4h953sul21rudvhj0bpu8.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDTKselDVri7HgyF6P5iQukFkUYv4Vwnd8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "70767198657-sar9h5gnbit4h953sul21rudvhj0bpu8.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:70767198657:android:9476a1cfc07359f1d7af40",
-        "android_client_info": {
-          "package_name": "com.timixyz.evento"
         }
       },
       "oauth_client": [

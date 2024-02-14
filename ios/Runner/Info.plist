@@ -43,5 +43,17 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Evento precisa de sua localização para funcionar corretamente.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Evento precisa de sua localização para funcionar corretamente.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Evento precisa de sua localização para funcionar corretamente.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>location</string>
+        <string>remote-notification</string>
+    </array>
 </dict>
 </plist>

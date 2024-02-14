@@ -27,12 +27,12 @@ class SearchScreen extends StatelessWidget {
                 EvSvgIc(R.I.candle.svgT, color: theme.surface),
                 bgColor: theme.primary,
                 padding: const EdgeInsets.all(12),
-                onPressed: () => showCupertinoModalBottomSheet(
-                    context: context,
-                    useRootNavigator: true,
-                    closeProgressThreshold: .5,
-                    barrierColor: Colors.black26,
-                    builder: (context) => const FilterScreen()),
+                // onPressed: () async => showCupertinoModalBottomSheet(
+                //     context: context,
+                //     useRootNavigator: true,
+                //     closeProgressThreshold: .5,
+                //     barrierColor: Colors.black26,
+                //     builder: (context) => const FilterScreen()),
               ),
             ],
           ).padding(horizontal: Insets.l),
@@ -41,16 +41,12 @@ class SearchScreen extends StatelessWidget {
             child: FutureBuilder<List<dynamic>>(
               future: MockData.getEvents(),
               builder: (context, AsyncSnapshot<List<dynamic>> snap) {
-                if (snap.connectionState == ConnectionState.waiting &&
-                    snap.data == null) return const EvBusy();
-                List<EventModel> events =
-                    snap.data!.map((e) => EventModel.fromJson(e)).toList();
+                if (snap.connectionState == ConnectionState.waiting && snap.data == null) return const EvBusy();
+                List<EventModel> events = snap.data!.map((e) => EventModel.fromJson(e)).toList();
                 return SingleChildScrollView(
                   child: Column(
                     children: [
-                      ...events.reversed
-                          .take(5)
-                          .map((event) => EventItem(data: event)),
+                      ...events.reversed.take(5).map((event) => EventItem(data: event)),
                     ],
                   ),
                 );

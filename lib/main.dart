@@ -1,16 +1,28 @@
 import 'package:evento/exports.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    name: 'Evento Android',
+    options: const FirebaseOptions(
+      appId: '1:70767198657:web:f0216f7e553b4d8ed7af40',
+      apiKey: 'AIzaSyARVOYx4wXFWYqIUKV8b7reSO_SqzBWdiU',
+      messagingSenderId: '70767198657',
+      projectId: 'evento-global',
+      databaseURL: 'https://evento-global-default-rtdb.firebaseio.com',
+      storageBucket: 'evento-global.appspot.com',
+    ),
+  );
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (c) => AppProvider()),
-        ChangeNotifierProvider(create: (c) => AuthProvider()),
+        ChangeNotifierProvider(create: (c) => AppAuthProvider()),
         ChangeNotifierProvider(create: (c) => ExploreProvider()),
         ChangeNotifierProvider(create: (c) => EventProvider()),
         Provider<BuildContext>(create: (c) => c),
@@ -22,7 +34,7 @@ void main() async {
 }
 
 class Evento extends StatefulWidget {
-  const Evento({Key? key}) : super(key: key);
+  const Evento({super.key});
 
   @override
   State<Evento> createState() => _EventoState();
@@ -30,6 +42,42 @@ class Evento extends StatefulWidget {
 
 class _EventoState extends State<Evento> {
   AuthApi api = AuthApi();
+  Location location = Location();
+
+  late bool _serviceEnabled;
+  late PermissionStatus _permissionGranted;
+  late LocationData _locationData;
+
+  @override
+  void initState() {
+    initLocation();
+    super.initState();
+  }
+
+  initLocation() async {
+    location.enableBackgroundMode(enable: true);
+
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        return;
+      }
+    }
+
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    _locationData = await location.getLocation();
+    if (kDebugMode) {
+      print(_locationData);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +104,10 @@ class _EventoState extends State<Evento> {
         )*/
         ,
         builder: (context, child) => MediaQuery(
-          child: child!,
           data: MediaQuery.of(context).copyWith(
-            textScaleFactor: context.widthPx <= 800 ? 0.8 : 1.9,
+            textScaler: TextScaler.linear(context.widthPx <= 800 ? 0.8 : 1.9),
           ),
+          child: child!,
         ),
         routes: R.G.myRoutes,
       ),

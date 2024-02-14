@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:evento/exports.dart';
+import 'package:flutter/material.dart';
 
 class EvSecTextBtn extends StatelessWidget {
   final String label;
@@ -23,8 +23,7 @@ class EvSecIcBtn extends StatelessWidget {
   final Function()? onPressed;
   final Color? color;
 
-  const EvSecIcBtn(this.icon, {Key? key, this.onPressed, this.color})
-      : super(key: key);
+  const EvSecIcBtn(this.icon, {Key? key, this.onPressed, this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +47,11 @@ class EvSecBtn extends StatefulWidget {
   final Function(bool)? onFocusChanged;
 
   const EvSecBtn(
-      {Key? key,
-      this.child,
-      this.onPressed,
-      this.minWidth,
-      this.minHeight,
-      this.contentPadding,
-      this.onFocusChanged})
+      {Key? key, this.child, this.onPressed, this.minWidth, this.minHeight, this.contentPadding, this.onFocusChanged})
       : super(key: key);
 
   @override
-  _EvSecBtnState createState() => _EvSecBtnState();
+  State<EvSecBtn> createState() => _EvSecBtnState();
 }
 
 class _EvSecBtnState extends State<EvSecBtn> {
@@ -80,8 +73,8 @@ class _EvSecBtnState extends State<EvSecBtn> {
         onFocusChanged: widget.onFocusChanged,
         downColor: theme.grey.withOpacity(.35),
         borderRadius: Corners.s5,
-        child: IgnorePointer(child: widget.child),
         onPressed: widget.onPressed,
+        child: IgnorePointer(child: widget.child),
       ),
     );
   }

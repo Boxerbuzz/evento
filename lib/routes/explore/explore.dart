@@ -93,7 +93,7 @@ class ExploreScreen extends StatelessWidget {
                         vertical: Insets.sm,
                       ),
                     ),
-                  ).toList()
+                  )
                 ],
               ),
             ),

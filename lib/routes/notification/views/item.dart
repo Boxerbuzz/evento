@@ -36,12 +36,12 @@ class NotificationItem extends StatelessWidget {
                         children: [
                           EvSecBtn(
                             onPressed: () {},
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: Insets.l,
+                            ),
                             child: Text(
                               'Decline',
                               style: TextStyles.body1.textColor(theme.primary),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: Insets.l,
                             ),
                           ),
                           HSpace.md,

@@ -26,7 +26,7 @@ class _FacePileState extends State<FacePile>
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _syncAvatarsWithPile();
     });
   }
@@ -35,7 +35,7 @@ class _FacePileState extends State<FacePile>
   void didUpdateWidget(FacePile oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _syncAvatarsWithPile();
     });
   }

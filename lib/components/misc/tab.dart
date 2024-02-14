@@ -19,8 +19,7 @@ class EvTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
-    List<Widget> clickableLabels =
-        sections.map((e) => _clickableLabel(e, theme)).toList();
+    List<Widget> clickableLabels = sections.map((e) => _clickableLabel(e, theme)).toList();
 
     double targetAlignX = -1 + (index * 1 / (sections.length - 1)) * 2;
     return RepaintBoundary(
@@ -30,7 +29,7 @@ class EvTabBar extends StatelessWidget {
           _roundedBox(fill: theme.primary)
               .fractionallySizedBox(widthFactor: 1 / sections.length)
               .alignment(Alignment(targetAlignX, 0), animate: true)
-              .animate(Durations.fast, Curves.easeOut),
+              .animate(AppDurations.fast, Curves.easeOut),
           Row(children: clickableLabels)
         ],
       ).height(30),
@@ -56,15 +55,9 @@ class EvTabBar extends StatelessWidget {
     Color notSelected = theme.isDark ? theme.greyStrong : Colors.black45;
 
     return AnimatedDefaultTextStyle(
-      duration: Durations.fast,
-      style: TextStyles.body2.bold
-          .textColor(isSelected ? selected : notSelected)
-          .scale(fontScale),
-      child: Text(e)
-          .center()
-          .clickable(() => onTabPressed?.call(sections.indexOf(e)),
-              opaque: true)
-          .expanded(),
+      duration: AppDurations.fast,
+      style: TextStyles.body2.bold.textColor(isSelected ? selected : notSelected).scale(fontScale),
+      child: Text(e).center().clickable(() => onTabPressed?.call(sections.indexOf(e)), opaque: true).expanded(),
     );
   }
 }

@@ -8,14 +8,14 @@ class EventCmd extends EvBaseCommand {
   EventProvider get _ep => getProvider<EventProvider>();
 
   ///*Auth Provider*///
-  AuthProvider get _ap => getProvider<AuthProvider>();
+  AppAuthProvider get _ap => getProvider<AppAuthProvider>();
 
   ///*Events Api*///
   final EventApi _api = EventApi();
 
   ///*Fetch Events in future date*///
   Future<void> date() async {
-    final BuildContext _ctx = rootNav!.context;
+    final BuildContext ctx = rootNav!.context;
     _ep.fetch = true;
     await _api.events().then((value) {
       _ep.fetch = false;
@@ -23,7 +23,7 @@ class EventCmd extends EvBaseCommand {
       (e) {
         _ep.fetch = false;
         showModal(
-          context: _ctx,
+          context: ctx,
           builder: (_) => EvDialog(
             title: 'Error',
             actionText: 'Ok',
@@ -36,7 +36,7 @@ class EventCmd extends EvBaseCommand {
 
   ///*Fetch Recommended events based on liked categories*///
   Future<void> recommend() async {
-    final BuildContext _ctx = rootNav!.context;
+    final BuildContext ctx = rootNav!.context;
     _ep.fetch = true;
     await _api.recommended(_ap.liked).then((value) {
       _ep.fetch = false;
@@ -44,7 +44,7 @@ class EventCmd extends EvBaseCommand {
       (e) {
         _ep.fetch = false;
         showModal(
-          context: _ctx,
+          context: ctx,
           builder: (_) => EvDialog(
             title: 'Error',
             actionText: 'Ok',
@@ -57,7 +57,7 @@ class EventCmd extends EvBaseCommand {
 
   ///*Fetch all events*///
   Future<void> events() async {
-    final BuildContext _ctx = rootNav!.context;
+    final BuildContext ctx = rootNav!.context;
     _ep.fetch = true;
     await _api.events().then((value) {
       _ep.fetch = false;
@@ -65,7 +65,7 @@ class EventCmd extends EvBaseCommand {
       (e) {
         _ep.fetch = false;
         showModal(
-          context: _ctx,
+          context: ctx,
           builder: (_) => EvDialog(
             title: 'Error',
             actionText: 'Ok',

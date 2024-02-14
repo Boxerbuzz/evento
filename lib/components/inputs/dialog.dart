@@ -23,23 +23,23 @@ class EvDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme theme = context.watch();
-    Color? _color;
-    String _icon = R.I.closeSquare.svgB;
+    Color? color;
+    String icon = R.I.closeSquare.svgB;
     switch (state) {
       case EvDS.error:
-        _color = theme.error;
+        color = theme.error;
         break;
       case EvDS.success:
-        _icon = R.I.tickCircle.svgB;
-        _color = theme.primary;
+        icon = R.I.tickCircle.svgB;
+        color = theme.primary;
         break;
       case EvDS.warning:
-        _icon = R.I.warning.svgB;
-        _color = theme.secondaryVariant;
+        icon = R.I.warning.svgB;
+        color = theme.secondaryVariant;
         break;
       default:
-        _icon = R.I.infoCircle.svgB;
-        _color = theme.secondaryVariant;
+        icon = R.I.infoCircle.svgB;
+        color = theme.secondaryVariant;
     }
 
     return AlertDialog(
@@ -53,10 +53,10 @@ class EvDialog extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(Insets.m),
             decoration: BoxDecoration(
-              color: _color,
+              color: color,
               borderRadius: Corners.s0Border,
             ),
-            child: EvSvgIc(_icon, color: Colors.white),
+            child: EvSvgIc(icon, color: Colors.white),
           ),
           VSpace.md,
           Padding(
@@ -66,7 +66,7 @@ class EvDialog extends StatelessWidget {
                 if (title.isNotEmpty)
                   Text(
                     title,
-                    style: TextStyles.h6.textColor(_color),
+                    style: TextStyles.h6.textColor(color),
                     textAlign: TextAlign.center,
                   ),
                 if (msg.isNotEmpty)
@@ -110,7 +110,7 @@ class EvDialog extends StatelessWidget {
                       child: Text(
                         actionText,
                         style: TextStyles.body1.textColor(
-                            state == EvDS.error ? _color : theme.primary),
+                            state == EvDS.error ? color : theme.primary),
                         textAlign: TextAlign.center,
                       ),
                     )

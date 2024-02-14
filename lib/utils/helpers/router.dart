@@ -63,10 +63,10 @@ class RouteHelper {
       pageBuilder: (context, animation, secondaryAnimation) => builder(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return SharedAxisTransition(
-          child: child,
           animation: animation,
           secondaryAnimation: secondaryAnimation,
           transitionType: type,
+          child: child,
         );
       },
     );

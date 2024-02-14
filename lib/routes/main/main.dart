@@ -6,7 +6,7 @@ class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -41,10 +41,11 @@ class _MainScreenState extends State<MainScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           backgroundColor: theme.primaryVariant,
-          onPressed: () => showMaterialModalBottomSheet(
-            context: context,
-            builder: (context) => const CreateEventScreen(),
-          ),
+          onPressed: null,
+          // onPressed: () async => showMaterialModalBottomSheet(
+          //   context: context,
+          //   builder: (context) => const CreateEventScreen(),
+          // ),
           child: EvSvgIc(
             R.I.addItem.svgB,
             color: theme.background,

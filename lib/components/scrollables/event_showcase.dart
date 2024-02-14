@@ -1,19 +1,18 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
+
 import 'package:evento/exports.dart';
+import 'package:flutter/material.dart';
 
 class EvShowcase extends StatefulWidget {
-  const EvShowcase({Key? key, this.items = const [], this.onChange})
-      : super(key: key);
+  const EvShowcase({Key? key, this.items = const [], this.onChange}) : super(key: key);
   final List<EventModel> items;
   final Function? onChange;
 
   @override
-  _EvShowcaseState createState() => _EvShowcaseState();
+  State<EvShowcase> createState() => _EvShowcaseState();
 }
 
-class _EvShowcaseState extends State<EvShowcase>
-    with SingleTickerProviderStateMixin {
+class _EvShowcaseState extends State<EvShowcase> with SingleTickerProviderStateMixin {
   final double _maxRotation = 30;
 
   late PageController _pageController;
@@ -59,7 +58,7 @@ class _EvShowcaseState extends State<EvShowcase>
   }
 
   Widget _buildItemRenderer(int itemIndex) {
-    return _Rotation3d(
+    return Rotation3d(
       rotationY: _normalizedOffset * _maxRotation,
       child: _Item(
         _normalizedOffset,
@@ -79,8 +78,7 @@ class _EvShowcaseState extends State<EvShowcase>
         _setOffset(newOffset.clamp(-1.0, 1.0));
       }
       _prevScrollX = notification.metrics.pixels;
-      widget.onChange!(widget.items
-          .elementAt(_pageController.page!.round() % widget.items.length));
+      widget.onChange!(widget.items.elementAt(_pageController.page!.round() % widget.items.length));
     }
     //Scroll Start
     else if (notification is ScrollStartNotification) {
@@ -105,11 +103,9 @@ class _EvShowcaseState extends State<EvShowcase>
   void _startOffsetTweenToZero() {
     int tweenTime = 1000;
     if (_tweenController == null) {
-      _tweenController =
-          AnimationController(vsync: this, duration: tweenTime.milliseconds);
+      _tweenController = AnimationController(vsync: this, duration: tweenTime.milliseconds);
       _tween = Tween<double>(begin: -1, end: 0);
-      _tweenAnim = _tween?.animate(
-          CurvedAnimation(parent: _tweenController!, curve: Curves.elasticOut));
+      _tweenAnim = _tween?.animate(CurvedAnimation(parent: _tweenController!, curve: Curves.elasticOut));
       _tweenAnim?.addListener(() => _setOffset(_tweenAnim!.value));
     }
     _tween?.begin = _normalizedOffset;
@@ -119,7 +115,7 @@ class _EvShowcaseState extends State<EvShowcase>
   }
 }
 
-class _Rotation3d extends StatelessWidget {
+class Rotation3d extends StatelessWidget {
   //Degrees to rads constant
   static const double degrees2Radians = pi / 160;
 
@@ -128,12 +124,7 @@ class _Rotation3d extends StatelessWidget {
   final double rotationY;
   final double rotationZ;
 
-  const _Rotation3d(
-      {Key? key,
-      required this.child,
-      this.rotationX = 0,
-      this.rotationY = 0,
-      this.rotationZ = 0})
+  const Rotation3d({Key? key, required this.child, this.rotationY = 0, this.rotationX = 0, this.rotationZ = 0})
       : super(key: key);
 
   @override
@@ -187,9 +178,7 @@ class _Item extends StatelessWidget {
                         color: ColorHelper.shiftHsl(color!, .1),
                         borderRadius: Corners.s5Border,
                         image: DecorationImage(
-                          image: AssetImage(StringHelper.isEmpty(item.backdrop)
-                              ? item.img
-                              : item.backdrop),
+                          image: AssetImage(StringHelper.isEmpty(item.backdrop) ? item.img : item.backdrop),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -254,11 +243,10 @@ class _Item extends StatelessWidget {
               ),
             ],
           ),
-        ).rClick(()=> gotoDetails(context)),
+        ).rClick(() => gotoDetails(context)),
       ),
     );
   }
 
-  gotoDetails(BuildContext ctx) => Navigator.push(
-      ctx, RouteHelper.fadeScale(() => const DetailScreen()));
+  gotoDetails(BuildContext ctx) => Navigator.push(ctx, RouteHelper.fadeScale(() => const DetailScreen()));
 }

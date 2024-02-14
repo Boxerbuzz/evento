@@ -34,16 +34,16 @@ class EvIcBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme theme = Theme.of(context).colorScheme;
-    bool _mouseOver = false;
+    bool mouseOver = false;
     return StatefulBuilder(
       builder: (_, setState) {
         Color iconColor = (color ?? Colors.black);
-        if (_mouseOver) {
+        if (mouseOver) {
           iconColor = ColorHelper.shiftHsl(iconColor, -.2);
         }
         return MouseRegion(
-          onEnter: (_) => setState(() => _mouseOver = true),
-          onExit: (_) => setState(() => _mouseOver = false),
+          onEnter: (_) => setState(() => mouseOver = true),
+          onExit: (_) => setState(() => mouseOver = false),
           child: BaseBtn(
             minHeight: minHeight ?? (shrinkWrap ? 0 : 42),
             minWidth: minWidth ?? (shrinkWrap ? 0 : 42),
@@ -52,9 +52,9 @@ class EvIcBtn extends StatelessWidget {
             hoverColor: bgColor ?? Colors.transparent,
             onFocusChanged: onFocusChanged,
             contentPadding: padding ?? EdgeInsets.all(Insets.sm),
-            child: IgnorePointer(child: icon),
             onPressed: onPressed,
             borderRadius: radius,
+            child: IgnorePointer(child: icon),
           ),
         );
       },

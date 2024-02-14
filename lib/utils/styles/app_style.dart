@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../extensions/ext.dart';
 
-class Durations {
+class AppDurations {
   static Duration get fastest => .15.seconds;
 
   static Duration get fast => .25.seconds;

@@ -32,9 +32,10 @@ class AuthApi extends BaseApi {
   }
 
   Future<DocumentSnapshot?> user() async {
-    bool _setup = await hasSetup();
-    if (_setup) {
+    bool setup = await hasSetup();
+    if (setup) {
       return await db.collection(R.S.dbUser).doc(fbUser!.uid).get();
     }
+    return null;
   }
 }

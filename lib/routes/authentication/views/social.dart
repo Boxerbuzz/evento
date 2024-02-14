@@ -14,18 +14,18 @@ class SocialLogin extends StatelessWidget {
       children: [
         FloatingActionButton(
           onPressed: () {},
-          child: SvgPicture.asset('assets/images/fb.svg'),
           backgroundColor: theme.background,
           elevation: 2,
           heroTag: tag1,
+          child: SvgPicture.asset('assets/images/fb.svg'),
         ),
         HSpace.lg,
         FloatingActionButton(
           onPressed: () {},
-          child: SvgPicture.asset('assets/images/google.svg'),
           backgroundColor: theme.background,
           elevation: 2,
           heroTag: tag2,
+          child: SvgPicture.asset('assets/images/google.svg'),
         ),
       ],
     );

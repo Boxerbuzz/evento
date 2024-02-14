@@ -29,10 +29,10 @@ class AppHelper {
   }
 
   static bool get isMouseConnected =>
-      RendererBinding.instance!.mouseTracker.mouseIsConnected;
+      RendererBinding.instance.mouseTracker.mouseIsConnected;
 
   static void unFocus() {
-    WidgetsBinding.instance!.focusManager.primaryFocus?.unfocus();
+    WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
   }
 
   static void statusBar(BuildContext context, w, Function f, {Color? c}) {

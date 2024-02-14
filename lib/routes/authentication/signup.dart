@@ -10,7 +10,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: Insets.l),
-        child: Consumer<AuthProvider>(
+        child: Consumer<AppAuthProvider>(
           builder: (context, store, child) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,8 +73,7 @@ class SignupScreen extends StatelessWidget {
                         EvLinkText(
                           text: 'Already have an account? Login',
                           textStyle: TextStyles.h7,
-                        ).rClick(() => Navigator.push(context,
-                            RouteHelper.fadeScale(() => const LoginScreen()))),
+                        ).rClick(() => Navigator.push(context, RouteHelper.fadeScale(() => const LoginScreen()))),
                         VSpace.lg,
                       ],
                     );

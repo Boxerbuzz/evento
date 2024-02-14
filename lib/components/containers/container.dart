@@ -33,7 +33,6 @@ class EvContainer extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      child: child,
       margin: margin,
       alignment: align,
       clipBehavior: Clip.antiAlias,
@@ -44,6 +43,7 @@ class EvContainer extends StatelessWidget {
         boxShadow: shadows,
         border: border,
       ),
-    ).animate(duration ?? Durations.medium, Curves.bounceInOut);
+      child: child,
+    ).animate(duration ?? AppDurations.medium, Curves.bounceInOut);
   }
 }

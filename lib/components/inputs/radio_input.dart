@@ -61,7 +61,7 @@ class EvRadioInput extends StatelessWidget {
                       const SizedBox(width: 5),
                       Text(
                         option,
-                        style: style ?? Theme.of(context).textTheme.bodyText2,
+                        style: style ?? Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),

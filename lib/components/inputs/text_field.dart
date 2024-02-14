@@ -2,20 +2,20 @@ import 'package:evento/exports.dart';
 import 'package:flutter/material.dart';
 
 class EvTextField extends StatefulWidget {
-  const EvTextField({
-    required this.label,
-    required this.iKey,
-    this.msg = const {},
-    Key? key,
-    this.obscureText = false,
-    this.icon,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.hint,
-    this.type,
-    this.action,
-    this.control,
-  }) : super(key: key);
+  const EvTextField(
+      {required this.label,
+      required this.iKey,
+      this.msg = const {},
+      Key? key,
+      this.obscureText = false,
+      this.icon,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.hint,
+      this.type,
+      this.action,
+      this.control})
+      : super(key: key);
   final String iKey;
   final String label;
   final Map<String, String> msg;
@@ -41,10 +41,10 @@ class _EvTextFieldState extends State<EvTextField> {
       children: [
         ReactiveTextField<String>(
           formControlName: widget.iKey,
-          validationMessages: (control) => {
-            ValidationMessage.required:
-                'The ${widget.label} field must not be empty'
-          }..addAll(widget.msg),
+          // validationMessages: (control) => {
+          //   ValidationMessage.required:
+          //       'The ${widget.label} field must not be empty'
+          // }..addAll(widget.msg),
           textInputAction: widget.action ?? TextInputAction.next,
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon == null
@@ -80,27 +80,27 @@ class _EvTextFieldState extends State<EvTextField> {
   }
 
   TextInputType _setKeyboardType() {
-    TextInputType _type;
+    TextInputType type;
     switch (widget.type) {
       case InputType.email:
-        _type = TextInputType.emailAddress;
+        type = TextInputType.emailAddress;
         break;
       case InputType.money:
-        _type = TextInputType.number;
+        type = TextInputType.number;
         break;
       case InputType.tel:
-        _type = TextInputType.phone;
+        type = TextInputType.phone;
         break;
       case InputType.num:
-        _type = const TextInputType.numberWithOptions(decimal: true);
+        type = const TextInputType.numberWithOptions(decimal: true);
         break;
       case InputType.txt:
-        _type = TextInputType.text;
+        type = TextInputType.text;
         break;
       default:
-        _type = TextInputType.text;
+        type = TextInputType.text;
     }
-    return _type;
+    return type;
   }
 }
 

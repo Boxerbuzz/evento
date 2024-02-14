@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: Insets.l),
-        child: Consumer<AuthProvider>(
+        child: Consumer<AppAuthProvider>(
           builder: (context, store, child) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,17 +67,14 @@ class LoginScreen extends StatelessWidget {
                         EvPriTextBtn(
                           R.S.signIn,
                           onPressed: () => Navigator.pushAndRemoveUntil(
-                              context,
-                              RouteHelper.fadeScale(() => const MainScreen()),
-                                  (route) => false),
+                              context, RouteHelper.fadeScale(() => const MainScreen()), (route) => false),
                           loading: store.isLogin,
                         ),
                         VSpace.lg,
                         EvLinkText(
                           text: "Don't have an account? Signup",
                           textStyle: TextStyles.h7,
-                        ).rClick(() => Navigator.push(context,
-                            RouteHelper.fadeScale(() => const LoginScreen()))),
+                        ).rClick(() => Navigator.push(context, RouteHelper.fadeScale(() => const LoginScreen()))),
                         VSpace.lg,
                       ],
                     );

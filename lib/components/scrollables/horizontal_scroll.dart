@@ -78,8 +78,8 @@ class _EvHScrollState extends State<EvHScroll> {
       key: _scrollViewKey,
       scrollDirection: Axis.horizontal,
       controller: _scrollController,
-      child: Container(key: _childContainerKey, child: widget.child),
       physics: widget.physics ?? const ClampingScrollPhysics(),
+      child: Container(key: _childContainerKey, child: widget.child),
     );
   }
 }
